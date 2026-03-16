@@ -2,79 +2,141 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/estilos.css">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | Sergio, Mario y Álvaro</title>
     <style>
-      /* --- CONTENEDOR PRINCIPAL --- */
-      .main-container-layout {
-        display: flex;
-        min-height: 100vh;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      }
+        :root {
+            --bg-dark: #0f172a; 
+            --sidebar-bg: #1e293b;
+            --card-bg: #ffffff;
+            --sergio: #c084fc;   
+            --mario: #fb923c;    
+            --alvaro: #2dd4bf;   
+            --text-muted: #94a3b8;
+            --accent-white: #f8fafc;
+        }
 
-      /* --- BARRA LATERAL (SIDEBAR) --- */
-      .sidebar {
-        width: 250px;
-        background-color: #1a1c2c;
-        color: white;
-        padding: 20px;
-        position: fixed;
-        height: 100%;
-      }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin: 0;
+            display: flex;
+            background-color: var(--bg-dark);
+            min-height: 100vh;
+        }
 
-      .sidebar h2 {
-        font-size: 1.2em;
-        border-bottom: 1px solid #34495e;
-        padding-bottom: 10px;
-        margin-bottom: 20px;
-      }
+        /* --- BARRA LATERAL IZQUIERDA --- */
+        nav {
+            width: 300px;
+            background-color: var(--sidebar-bg);
+            position: fixed;
+            left: 0;
+            height: 100vh;
+            padding: 30px 15px;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            border-right: 1px solid rgba(255,255,255,0.05);
+            overflow-y: auto;
+        }
 
-      .sidebar nav a {
-        display: block;
-        color: #adb5bd;
-        text-decoration: none;
-        padding: 10px;
-        margin-bottom: 5px;
-        border-radius: 5px;
-        transition: 0.3s;
-      }
+        nav h1 {
+            color: white;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            padding: 0 15px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
 
-      .sidebar nav a:hover {
-        background: #2d3142;
-        color: white;
-      }
+        .nav-section-title {
+            color: white;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 15px 15px 5px;
+            display: block;
+        }
 
-      /* --- AREA DE CONTENIDO --- */
-      .content-area {
-        margin-left: 270px; /* Deja espacio para la sidebar */
-        padding: 40px;
-        width: 100%;
-        background-color: #f4f4f4;
-      }
-    </style>
-</head>
-<body>
+        /* ESTILO PARA EL ENLACE DE INICIO */
+        .nav-inicio {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            display: block;
+            border-radius: 8px;
+            transition: 0.3s;
+            margin-bottom: 10px;
+        }
+        .nav-inicio:hover { background: rgba(255,255,255,0.1); }
 
-    <div class="main-container-layout">
+        nav ul { list-style: none; padding: 0; margin: 0 0 20px 0; }
         
-        <aside class="sidebar">
-            <h2>SEGURIDAD LABORAL</h2>
-            <nav>
-                <a href="{{ site.baseurl }}/index.html">🏠 Inicio</a>
-                
-                <a href="{{ site.baseurl }}/marco_legal.html">⚖️ Marco Legal</a>
-                <a href="{{ site.baseurl }}/riesgos.html">⚠️ Riesgos</a>
-                <a href="{{ site.baseurl }}/epis.html">⛑️ Equipos (EPI)</a>
-                <a href="{{ site.baseurl }}/referencias.html">📚 Referencias</a>
-            </nav>
-        </aside>
+        nav ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            display: block;
+            padding: 8px 15px 8px 30px;
+            border-radius: 8px;
+            transition: all 0.2s;
+            font-size: 0.88rem;
+            position: relative;
+        }
 
-        <main class="content-area">
-            {{ content }}
-        </main>
+        nav ul li a::before {
+            content: "•";
+            position: absolute;
+            left: 15px;
+            opacity: 0.5;
+        }
 
-    </div>
+        .nav-sergio:hover { color: var(--sergio) !important; background: rgba(192, 132, 252, 0.1); }
+        .nav-mario:hover { color: var(--mario) !important; background: rgba(251, 146, 60, 0.1); }
+        .nav-alvaro:hover { color: var(--alvaro) !important; background: rgba(45, 212, 191, 0.1); }
 
-</body>
-</html>
+        /* --- PANEL DERECHO (AUTORES) --- */
+        aside {
+            width: 220px;
+            position: fixed;
+            right: 0;
+            height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .author-card {
+            background: rgba(30, 41, 59, 0.7);
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: right;
+        }
+
+        .author-name { font-weight: 600; font-size: 0.8rem; }
+        .card-sergio { border-right: 4px solid var(--sergio); color: var(--sergio); }
+        .card-mario { border-right: 4px solid var(--mario); color: var(--mario); }
+        .card-alvaro { border-right: 4px solid var(--alvaro); color: var(--alvaro); }
+
+        /* --- CONTENIDO --- */
+        main {
+            margin-left: 300px;
+            margin-right: 220px;
+            flex-grow: 1;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .content-card {
+            background: var(--card-bg);
+            width: 100%;
+            max-width: 850px;
+            padding: 60px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        h1 { font-size: 2.2rem; color: #0f172a; margin-bottom: 20px; }
+        p { line-height: 1.7; color: #33415
