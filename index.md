@@ -1,130 +1,81 @@
 ---
 layout: default
-title: Inicio - Seguridad en el Trabajo
+title: Inicio - Salud e Informática
 ---
 
 <style>
-  /* --- CONTENEDOR PRINCIPAL --- */
-  .main-container {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #2c3e50;
-    max-width: 900px;
-    margin: auto;
-  }
-
-  /* --- HEADER ESTILO HERO --- */
-  .hero-section {
-    background: linear-gradient(120deg, #1976d2 0%, #0d47a1 100%); /* Cambiado a Azul (seguridad) */
+  /* Portada Estilo Hero */
+  .hero-portada {
+    background: linear-gradient(120deg, #2e7d32 0%, #004d40 100%);
     color: white;
-    padding: 60px 20px;
+    padding: 50px 30px;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     margin-bottom: 40px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
   }
 
-  /* --- GRID DE NAVEGACIÓN --- */
+  .hero-portada h1 { color: white !important; margin: 0; font-size: 2.5rem; }
+  .hero-portada p { color: #e0e0e0 !important; font-size: 1.1rem; margin-top: 10px; }
+
+  /* Grid de Tarjetas */
   .grid-indice {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    padding: 10px;
   }
 
-  /* --- TARJETAS --- */
-  .card {
+  .tarjeta-link {
     background: #ffffff;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #e2e8f0;
     border-radius: 15px;
     padding: 25px;
     text-decoration: none !important;
-    color: #333 !important;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.3s ease;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
   }
 
-  .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-    border-color: #1976d2; /* Borde azul al pasar el ratón */
+  .tarjeta-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-color: #2e7d32;
   }
 
-  .card-icon {
-    font-size: 40px;
-    margin-bottom: 15px;
-  }
-
-  .card-title {
-    font-weight: bold;
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color: #0d47a1;
-  }
-
-  .card-desc {
-    font-size: 0.9em;
-    color: #666;
-  }
-
-  /* --- PIE DE PÁGINA --- */
-  .footer-info {
-    margin-top: 50px;
-    padding: 20px;
-    border-top: 2px solid #eee;
-    text-align: center;
-    font-style: italic;
-    color: #7f8c8d;
-  }
+  .t-icon { font-size: 40px; margin-bottom: 15px; }
+  .t-title { font-weight: bold; color: #1e293b; margin-bottom: 8px; font-size: 1.1rem; }
+  .t-desc { color: #64748b; font-size: 0.9rem; line-height: 1.4; }
 </style>
 
-<div class="main-container">
+<div class="hero-portada">
+  <h1>Prevención de Riesgos en Informática</h1>
+  <p>Análisis y soluciones para Sergio Quemada, Mario Infantes y Álvaro Zarza</p>
+</div>
 
-  <div class="hero-section">
-    <h1 style="color: white; margin: 0; font-size: 2.8em;">Seguridad en el Trabajo</h1>
-    <p style="color: white; font-size: 1.2em; opacity: 0.9; margin-top: 15px;">Prevención de riesgos y bienestar en el entorno laboral</p>
-  </div>
+<div class="grid-indice">
+  <a href="trastornos-musculoesqueleticos.html" class="tarjeta-link">
+    <div class="t-icon">🦴</div>
+    <div class="t-title">Trastornos Físicos</div>
+    <div class="t-desc">Posturas, ergonomía y cómo cuidar tu espalda y manos.</div>
+  </a>
 
-  <div class="grid-indice">
-    
-    <a href="marco_legal.html" class="card">
-      <div class="card-icon">⚖️</div>
-      <div class="card-title">Marco Normativo</div>
-      <div class="card-desc">Leyes y reglamentos básicos que garantizan la seguridad del trabajador.</div>
-    </a>
+  <a href="fatiga-visual.html" class="tarjeta-link">
+    <div class="t-icon">👁️</div>
+    <div class="t-title">Fatiga Visual</div>
+    <div class="t-desc">Protege tus ojos del cansancio provocado por las pantallas.</div>
+  </a>
 
-    <a href="riesgos_comunes.html" class="card">
-      <div class="card-icon">⚠️</div>
-      <div class="card-title">Riesgos Laborales</div>
-      <div class="card-desc">Identificación de peligros físicos, químicos y ergonómicos en el puesto.</div>
-    </a>
+  <a href="tecnoestres.html" class="tarjeta-link">
+    <div class="t-icon">🧠</div>
+    <div class="t-title">Carga Mental</div>
+    <div class="t-desc">Gestión del estrés y desconexión digital para informáticos.</div>
+  </a>
 
-    <a href="equipos_proteccion.html" class="card">
-      <div class="card-icon">⛑️</div>
-      <div class="card-title">Equipos de Protección (EPI)</div>
-      <div class="card-desc">Uso correcto de cascos, guantes y material de seguridad individual.</div>
-    </a>
-
-    <a href="primeros_auxilios.html" class="card">
-      <div class="card-icon">🚑</div>
-      <div class="card-title">Primeros Auxilios</div>
-      <div class="card-desc">Protocolos de actuación inmediata ante accidentes o emergencias médicas.</div>
-    </a>
-
-    <a href="bibliografia.html" class="card" style="grid-column: 1 / -1;">
-      <div class="card-icon">📖</div>
-      <div class="card-title">Fuentes y Documentación</div>
-      <div class="card-desc">Bibliografía consultada y créditos del proyecto de seguridad.</div>
-    </a>
-
-  </div>
-
-  <div class="footer-info">
-    "La mejor herramienta de seguridad es la prevención."
-    <br><strong>Proyecto: Seguridad y Salud Laboral</strong>
-  </div>
-
+  <a href="ergonomia-puesto.html" class="tarjeta-link">
+    <div class="t-icon">💺</div>
+    <div class="t-title">Diseño del Puesto</div>
+    <div class="t-desc">Configuración ideal de silla, mesa y periféricos.</div>
+  </a>
 </div>
