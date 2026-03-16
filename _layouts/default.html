@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prevención de Riesgos | Informática</title>
+    <title>PRL en Informática | Sergio, Mario y Álvaro</title>
     <style>
         :root {
             --bg-dark: #0f172a; 
             --sidebar-bg: #1e293b;
             --card-bg: #ffffff;
-            /* Nuevos colores para los autores */
-            --sergio: #c084fc;   /* Violeta */
-            --mario: #fb923c;    /* Naranja */
-            --alvaro: #2dd4bf;   /* Turquesa */
+            --sergio: #c084fc;   
+            --mario: #fb923c;    
+            --alvaro: #2dd4bf;   
             --text-muted: #94a3b8;
+            --accent-white: #f8fafc;
         }
 
         body {
@@ -21,159 +21,162 @@
             margin: 0;
             display: flex;
             background-color: var(--bg-dark);
-            color: #1e293b;
             min-height: 100vh;
         }
 
         /* --- BARRA LATERAL IZQUIERDA --- */
         nav {
-            width: 280px;
+            width: 300px;
             background-color: var(--sidebar-bg);
             position: fixed;
             left: 0;
             height: 100vh;
-            padding: 40px 20px;
+            padding: 30px 15px;
             display: flex;
             flex-direction: column;
             box-sizing: border-box;
             border-right: 1px solid rgba(255,255,255,0.05);
-            z-index: 10;
+            overflow-y: auto;
         }
 
         nav h1 {
             color: white;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 40px;
-            text-align: center;
+            margin-bottom: 30px;
+            padding: 0 15px 20px;
             border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 20px;
-            line-height: 1.4;
         }
 
-        nav ul { list-style: none; padding: 0; margin: 0; }
-        nav ul li { margin-bottom: 8px; }
+        .nav-section-title {
+            color: white;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 15px 15px 5px;
+            display: block;
+        }
 
+        nav ul { list-style: none; padding: 0; margin: 0 0 20px 0; }
+        
+        /* Subpuntos con sangría */
         nav ul li a {
             color: var(--text-muted);
             text-decoration: none;
             display: block;
-            padding: 12px 15px;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            font-size: 0.9rem;
+            padding: 8px 15px 8px 30px;
+            border-radius: 8px;
+            transition: all 0.2s;
+            font-size: 0.88rem;
+            position: relative;
+        }
+
+        nav ul li a::before {
+            content: "•";
+            position: absolute;
+            left: 15px;
+            opacity: 0.5;
         }
 
         .nav-sergio:hover { color: var(--sergio) !important; background: rgba(192, 132, 252, 0.1); }
         .nav-mario:hover { color: var(--mario) !important; background: rgba(251, 146, 60, 0.1); }
         .nav-alvaro:hover { color: var(--alvaro) !important; background: rgba(45, 212, 191, 0.1); }
-        .nav-ref:hover { color: white !important; background: rgba(255, 255, 255, 0.05); }
 
-        /* --- PANEL DERECHO --- */
+        /* --- PANEL DERECHO (AUTORES) --- */
         aside {
-            width: 240px;
+            width: 220px;
             position: fixed;
             right: 0;
             height: 100vh;
-            padding: 60px 25px;
-            box-sizing: border-box;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
         }
 
         .author-card {
-            background: rgba(30, 41, 59, 0.5);
-            padding: 15px;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
+            background: rgba(30, 41, 59, 0.7);
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: right;
         }
 
-        .author-name { font-weight: 700; font-size: 0.85rem; margin-bottom: 4px; }
+        .author-name { font-weight: 600; font-size: 0.8rem; }
         .card-sergio { border-right: 4px solid var(--sergio); color: var(--sergio); }
         .card-mario { border-right: 4px solid var(--mario); color: var(--mario); }
         .card-alvaro { border-right: 4px solid var(--alvaro); color: var(--alvaro); }
 
-        /* --- CONTENIDO CENTRAL --- */
+        /* --- CONTENIDO --- */
         main {
-            margin-left: 280px;
-            margin-right: 240px;
+            margin-left: 300px;
+            margin-right: 220px;
             flex-grow: 1;
+            padding: 40px;
             display: flex;
             justify-content: center;
-            padding: 60px 40px;
         }
 
         .content-card {
             background: var(--card-bg);
             width: 100%;
-            max-width: 800px;
-            padding: 50px;
-            border-radius: 28px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            min-height: 80vh;
+            max-width: 850px;
+            padding: 60px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        /* Estilos de texto */
-        .content-card h1 { color: #0f172a; border-bottom: 3px solid #f1f5f9; padding-bottom: 10px; font-size: 2rem; }
-        .content-card h2 { color: #1e293b; margin-top: 30px; }
-        .content-card p { line-height: 1.8; color: #475569; font-size: 1.1rem; }
-        .content-card ul { line-height: 1.8; color: #475569; }
+        h1 { font-size: 2.2rem; color: #0f172a; margin-bottom: 20px; }
+        p { line-height: 1.7; color: #334155; font-size: 1.05rem; }
 
         @media (max-width: 1100px) {
             body { flex-direction: column; }
-            nav, aside { width: 100%; height: auto; position: relative; }
-            main { margin: 0; padding: 20px; }
-            aside { flex-direction: row; justify-content: center; flex-wrap: wrap; background: none; }
+            nav, aside, main { width: 100%; position: relative; margin: 0; }
+            aside { flex-direction: row; flex-wrap: wrap; height: auto; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <h1><strong>Prevención de Riesgos <br>Informáticos</strong></h1>
+        <h1>Salud e Informática</h1>
+        
+        <span class="nav-section-title">1. Riesgos Laborales</span>
         <ul>
-            <li><a href="index.html" class="nav-ref">Inicio</a></li>
-            <li><a href="ergonomia.html" class="nav-sergio">Ergonomía Digital</a></li>
-            <li><a href="fatiga-visual.html" class="nav-mario">Fatiga Visual y Pantallas</a></li>
-            <li><a href="estres-laboral.html" class="nav-alvaro">Tecnoestrés y Salud Mental</a></li>
-            <li><a href="normativa.html" class="nav-ref">Normativa Legal (LPRL)</a></li>
+            <li><a href="trastornos-musculoesqueleticos.html" class="nav-sergio">Trastornos Físicos</a></li>
+            <li><a href="fatiga-visual.html" class="nav-mario">Fatiga Visual (SVI)</a></li>
+            <li><a href="tecnoestres.html" class="nav-alvaro">Carga Mental y Estrés</a></li>
+        </ul>
+
+        <span class="nav-section-title">2. Prevención de Riesgos</span>
+        <ul>
+            <li><a href="ergonomia-puesto.html" class="nav-sergio">Diseño del Puesto</a></li>
+            <li><a href="pausas-activas.html" class="nav-mario">Ejercicios y Pausas</a></li>
+            <li><a href="higiene-digital.html" class="nav-alvaro">Higiene Ambiental</a></li>
+        </ul>
+
+        <span class="nav-section-title">General</span>
+        <ul>
+            <li><a href="index.html" style="color:white; padding-left:15px; border-radius:8px;">Panel Principal</a></li>
+            <li><a href="referencias.html" style="color:white; padding-left:15px; border-radius:8px;">Referencias</a></li>
         </ul>
     </nav>
 
     <main>
         <div class="content-card">
-            <h1>Bienvenido al Portal de Seguridad</h1>
-            <p>En el sector informático, los riesgos laborales no suelen ser físicos o mecánicos, sino que se centran en factores <strong>ergonómicos, visuales y psicosociales</strong>.</p>
+            <h1>Prevención de Riesgos Laborales (PRL)</h1>
+            <p>El trabajo frente a pantallas de visualización de datos (PVD) conlleva una serie de riesgos específicos que pueden afectar a largo plazo la salud del informático.</p>
             
             
 
-            <h2>¿Qué aprenderás aquí?</h2>
-            <p>Este portal, desarrollado por expertos en el área, analiza cómo prevenir las dolencias más comunes en nuestra profesión:</p>
-            <ul>
-                <li>Optimización del espacio de trabajo.</li>
-                <li>Gestión de la carga mental y el estrés derivado de la tecnología.</li>
-                <li>Prevención de lesiones por movimientos repetitivos (Síndrome del Túnel Carpiano).</li>
-            </ul>
+            <p>En este espacio, <strong>Sergio Quemada, Mario Infantes y Álvaro Zarza</strong> desglosan los peligros más comunes de nuestra profesión y, lo más importante, cómo evitarlos mediante técnicas de prevención eficaces.</p>
         </div>
     </main>
 
     <aside>
-        <div class="author-card card-sergio">
-            <span class="author-name">Sergio Quemada</span>
-        </div>
-        <div class="author-card card-mario">
-            <span class="author-name">Mario Infantes Trigo</span>
-        </div>
-        <div class="author-card card-alvaro">
-            <span class="author-name">Álvaro Zarza</span>
-        </div>
+        <div class="author-card card-sergio"><span class="author-name">Sergio Quemada</span></div>
+        <div class="author-card card-mario"><span class="author-name">Mario Infantes T.</span></div>
+        <div class="author-card card-alvaro"><span class="author-name">Álvaro Zarza</span></div>
     </aside>
 
 </body>
