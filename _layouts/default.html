@@ -2,182 +2,79 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRL en Informática | Sergio, Mario y Álvaro</title>
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/estilos.css">
+    
     <style>
-        :root {
-            --bg-dark: #0f172a; 
-            --sidebar-bg: #1e293b;
-            --card-bg: #ffffff;
-            --sergio: #c084fc;   
-            --mario: #fb923c;    
-            --alvaro: #2dd4bf;   
-            --text-muted: #94a3b8;
-            --accent-white: #f8fafc;
-        }
+      /* --- CONTENEDOR PRINCIPAL --- */
+      .main-container-layout {
+        display: flex;
+        min-height: 100vh;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
 
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            margin: 0;
-            display: flex;
-            background-color: var(--bg-dark);
-            min-height: 100vh;
-        }
+      /* --- BARRA LATERAL (SIDEBAR) --- */
+      .sidebar {
+        width: 250px;
+        background-color: #1a1c2c;
+        color: white;
+        padding: 20px;
+        position: fixed;
+        height: 100%;
+      }
 
-        /* --- BARRA LATERAL IZQUIERDA --- */
-        nav {
-            width: 300px;
-            background-color: var(--sidebar-bg);
-            position: fixed;
-            left: 0;
-            height: 100vh;
-            padding: 30px 15px;
-            display: flex;
-            flex-direction: column;
-            box-sizing: border-box;
-            border-right: 1px solid rgba(255,255,255,0.05);
-            overflow-y: auto;
-        }
+      .sidebar h2 {
+        font-size: 1.2em;
+        border-bottom: 1px solid #34495e;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+      }
 
-        nav h1 {
-            color: white;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-            padding: 0 15px 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
+      .sidebar nav a {
+        display: block;
+        color: #adb5bd;
+        text-decoration: none;
+        padding: 10px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        transition: 0.3s;
+      }
 
-        .nav-section-title {
-            color: white;
-            font-weight: 700;
-            font-size: 0.95rem;
-            padding: 15px 15px 5px;
-            display: block;
-        }
+      .sidebar nav a:hover {
+        background: #2d3142;
+        color: white;
+      }
 
-        nav ul { list-style: none; padding: 0; margin: 0 0 20px 0; }
-        
-        /* Subpuntos con sangría */
-        nav ul li a {
-            color: var(--text-muted);
-            text-decoration: none;
-            display: block;
-            padding: 8px 15px 8px 30px;
-            border-radius: 8px;
-            transition: all 0.2s;
-            font-size: 0.88rem;
-            position: relative;
-        }
-
-        nav ul li a::before {
-            content: "•";
-            position: absolute;
-            left: 15px;
-            opacity: 0.5;
-        }
-
-        .nav-sergio:hover { color: var(--sergio) !important; background: rgba(192, 132, 252, 0.1); }
-        .nav-mario:hover { color: var(--mario) !important; background: rgba(251, 146, 60, 0.1); }
-        .nav-alvaro:hover { color: var(--alvaro) !important; background: rgba(45, 212, 191, 0.1); }
-
-        /* --- PANEL DERECHO (AUTORES) --- */
-        aside {
-            width: 220px;
-            position: fixed;
-            right: 0;
-            height: 100vh;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .author-card {
-            background: rgba(30, 41, 59, 0.7);
-            padding: 12px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: right;
-        }
-
-        .author-name { font-weight: 600; font-size: 0.8rem; }
-        .card-sergio { border-right: 4px solid var(--sergio); color: var(--sergio); }
-        .card-mario { border-right: 4px solid var(--mario); color: var(--mario); }
-        .card-alvaro { border-right: 4px solid var(--alvaro); color: var(--alvaro); }
-
-        /* --- CONTENIDO --- */
-        main {
-            margin-left: 300px;
-            margin-right: 220px;
-            flex-grow: 1;
-            padding: 40px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .content-card {
-            background: var(--card-bg);
-            width: 100%;
-            max-width: 850px;
-            padding: 60px;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        h1 { font-size: 2.2rem; color: #0f172a; margin-bottom: 20px; }
-        p { line-height: 1.7; color: #334155; font-size: 1.05rem; }
-
-        @media (max-width: 1100px) {
-            body { flex-direction: column; }
-            nav, aside, main { width: 100%; position: relative; margin: 0; }
-            aside { flex-direction: row; flex-wrap: wrap; height: auto; }
-        }
+      /* --- AREA DE CONTENIDO --- */
+      .content-area {
+        margin-left: 270px; /* Deja espacio para la sidebar */
+        padding: 40px;
+        width: 100%;
+        background-color: #f4f4f4;
+      }
     </style>
 </head>
 <body>
 
-    <nav>
-        <h1>Salud e Informática</h1>
+    <div class="main-container-layout">
         
-        <a href="index.html">Inicio</a>
-        <span class="nav-section-title">1. Riesgos Laborales</span>
-        <ul>
-            <li><a href="trastornos-musculoesqueleticos.html" class="nav-sergio">Trastornos Físicos</a></li>
-            <li><a href="fatiga-visual.html" class="nav-mario">Fatiga Visual</a></li>
-            <li><a href="tecnoestres.html" class="nav-alvaro">Carga Mental y Estrés</a></li>
-        </ul>
+        <aside class="sidebar">
+            <h2>SEGURIDAD LABORAL</h2>
+            <nav>
+                <a href="{{ site.baseurl }}/index.html">🏠 Inicio</a>
+                
+                <a href="{{ site.baseurl }}/marco_legal.html">⚖️ Marco Legal</a>
+                <a href="{{ site.baseurl }}/riesgos.html">⚠️ Riesgos</a>
+                <a href="{{ site.baseurl }}/epis.html">⛑️ Equipos (EPI)</a>
+                <a href="{{ site.baseurl }}/referencias.html">📚 Referencias</a>
+            </nav>
+        </aside>
 
-        <span class="nav-section-title">2. Prevención de Riesgos</span>
-        <ul>
-            <li><a href="ergonomia-puesto.html" class="nav-sergio">Diseño del Puesto</a></li>
-            <li><a href="pausas-activas.html" class="nav-mario">Ejercicios y Pausas</a></li>
-            <li><a href="higiene-digital.html" class="nav-alvaro">Higiene Ambiental</a></li>
-        </ul>
+        <main class="content-area">
+            {{ content }}
+        </main>
 
-        <span class="nav-section-title">General</span>
-        <ul>
-            <li><a href="referencias.html" style="color:white; padding-left:15px; border-radius:8px;">Referencias</a></li>
-        </ul>
-    </nav>
-
-    <main>
-        <div class="content-card">
-            <h1>Prevención de Riesgos Laborales (PRL)</h1>
-            <p>El trabajo frente a pantallas de visualización de datos (PVD) conlleva una serie de riesgos específicos que pueden afectar a largo plazo la salud del informático.</p>
-            
-            
-
-            <p>En este espacio, <strong>Sergio Quemada, Mario Infantes y Álvaro Zarza</strong> desglosan los peligros más comunes de nuestra profesión y, lo más importante, cómo evitarlos mediante técnicas de prevención eficaces.</p>
-        </div>
-    </main>
-
-    <aside>
-        <div class="author-card card-sergio"><span class="author-name">Sergio Quemada</span></div>
-        <div class="author-card card-mario"><span class="author-name">Mario Infantes T.</span></div>
-        <div class="author-card card-alvaro"><span class="author-name">Álvaro Zarza</span></div>
-    </aside>
+    </div>
 
 </body>
 </html>
