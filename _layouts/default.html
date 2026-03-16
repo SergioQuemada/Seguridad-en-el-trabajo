@@ -2,36 +2,140 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
     <style>
-        body { margin: 0; display: flex; background-color: #0f172a; min-height: 100vh; font-family: sans-serif; }
-        
-        /* Sidebar izquierda */
-        nav { width: 280px; background: #1e293b; color: white; height: 100vh; position: fixed; padding: 25px; box-sizing: border-box; }
-        nav a { display: block; color: #94a3b8; text-decoration: none; padding: 10px; margin: 5px 0; border-radius: 8px; font-size: 0.9rem; }
-        nav a:hover { background: rgba(255,255,255,0.05); color: white; }
-        .active-inicio { font-weight: bold; color: white; border-left: 3px solid #2dd4bf; padding-left: 15px; }
+        :root {
+            --bg-dark: #0f172a; 
+            --sidebar-bg: #1e293b;
+            --sergio: #c084fc;   
+            --mario: #fb923c;    
+            --alvaro: #2dd4bf;   
+            --text-muted: #94a3b8;
+        }
 
-        /* Contenido */
-        main { margin-left: 280px; margin-right: 200px; flex-grow: 1; padding: 40px; }
-        
-        /* Sidebar derecha (Autores) */
-        aside { width: 200px; position: fixed; right: 0; padding: 40px 20px; display: flex; flex-direction: column; gap: 15px; }
-        .auth { padding: 10px; border-radius: 8px; background: #1e293b; text-align: right; font-size: 0.8rem; border-right: 4px solid; }
-        .s { border-color: #c084fc; color: #c084fc; }
-        .m { border-color: #fb923c; color: #fb923c; }
-        .a { border-color: #2dd4bf; color: #2dd4bf; }
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            display: flex;
+            background-color: var(--bg-dark);
+            min-height: 100vh;
+        }
+
+        /* --- SIDEBAR IZQUIERDA --- */
+        nav {
+            width: 300px;
+            background-color: var(--sidebar-bg);
+            position: fixed;
+            left: 0;
+            height: 100vh;
+            padding: 30px 15px;
+            box-sizing: border-box;
+            border-right: 1px solid rgba(255,255,255,0.05);
+        }
+
+        nav h1 {
+            color: white;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            padding: 0 15px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-inicio {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px 15px;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .nav-inicio:hover { background: rgba(255,255,255,0.1); }
+
+        .section-title {
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        nav ul { list-style: none; padding: 0; margin: 0 0 20px 0; }
+        nav ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            display: block;
+            padding: 8px 15px 8px 30px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            transition: 0.3s;
+        }
+
+        /* Colores de Hover por Autor */
+        .nav-sergio:hover { color: var(--sergio) !important; background: rgba(192, 132, 252, 0.1); }
+        .nav-mario:hover { color: var(--mario) !important; background: rgba(251, 146, 60, 0.1); }
+        .nav-alvaro:hover { color: var(--alvaro) !important; background: rgba(45, 212, 191, 0.1); }
+
+        /* --- CONTENIDO --- */
+        main {
+            margin-left: 300px;
+            margin-right: 220px;
+            flex-grow: 1;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* --- ASIDE DERECHA --- */
+        aside {
+            width: 220px;
+            position: fixed;
+            right: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .author-tag {
+            background: rgba(30, 41, 59, 0.7);
+            padding: 12px;
+            border-radius: 12px;
+            border-right: 4px solid;
+            text-align: right;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .tag-sergio { border-color: var(--sergio); color: var(--sergio); }
+        .tag-mario { border-color: var(--mario); color: var(--mario); }
+        .tag-alvaro { border-color: var(--alvaro); color: var(--alvaro); }
     </style>
 </head>
 <body>
-
     <nav>
-        <h2 style="font-size: 0.8rem; letter-spacing: 2px; opacity: 0.6;">SALUD DIGITAL</h2>
-        <a href="index.html" class="active-inicio">🏠 Inicio</a>
-        <p style="font-size: 0.8rem; margin-top: 20px; padding-left: 10px; color: #5eead4;">1. RIESGOS</p>
-        <a href="trastornos-musculoesqueleticos.html">• Trastornos Físicos</a>
-        <a href="fatiga-visual.html">• Fatiga Visual</a>
-        <a href="tecnoestres.html">• Carga Mental</a>
+        <h1>Salud e Informática</h1>
+        <a href="index.html" class="nav-inicio">🏠 Inicio</a>
+
+        <span class="section-title">1. Riesgos Laborales</span>
+        <ul>
+            <li><a href="trastornos-musculoesqueleticos.html" class="nav-sergio">Trastornos Físicos</a></li>
+            <li><a href="fatiga-visual.html" class="nav-mario">Fatiga Visual</a></li>
+            <li><a href="tecnoestres.html" class="nav-alvaro">Carga Mental y Estrés</a></li>
+        </ul>
+
+        <span class="section-title">2. Prevención de Riesgos</span>
+        <ul>
+            <li><a href="ergonomia-puesto.html" class="nav-sergio">Diseño del Puesto</a></li>
+            <li><a href="pausas-activas.html" class="nav-mario">Ejercicios y Pausas</a></li>
+            <li><a href="higiene-digital.html" class="nav-alvaro">Higiene Ambiental</a></li>
+        </ul>
+
+        <span class="section-title">General</span>
+        <ul>
+            <li><a href="referencias.html" style="color:white;">Referencias</a></li>
+        </ul>
     </nav>
 
     <main>
@@ -39,11 +143,9 @@
     </main>
 
     <aside>
-        <div class="auth s">Sergio Quemada</div>
-        <div class="auth m">Mario Infantes T.</div>
-        <div class="auth a">Álvaro Zarza</div>
+        <div class="author-tag tag-sergio">Sergio Quemada</div>
+        <div class="author-tag tag-mario">Mario Infantes T.</div>
+        <div class="author-tag tag-alvaro">Álvaro Zarza</div>
     </aside>
-
 </body>
 </html>
-
