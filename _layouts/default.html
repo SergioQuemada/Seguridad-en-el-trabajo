@@ -32,6 +32,7 @@
             padding: 30px 15px;
             box-sizing: border-box;
             border-right: 1px solid rgba(255,255,255,0.05);
+            overflow-y: auto;
         }
 
         nav h1 {
@@ -74,40 +75,17 @@
             transition: 0.3s;
         }
 
-        /* Colores de Hover por Autor */
+        /* Hovers por autor */
         .nav-sergio:hover { color: var(--sergio) !important; background: rgba(192, 132, 252, 0.1); }
         .nav-mario:hover { color: var(--mario) !important; background: rgba(251, 146, 60, 0.1); }
         .nav-alvaro:hover { color: var(--alvaro) !important; background: rgba(45, 212, 191, 0.1); }
 
         /* --- CONTENIDO --- */
-        main {
-            margin-left: 300px;
-            margin-right: 220px;
-            flex-grow: 1;
-            padding: 40px;
-            display: flex;
-            justify-content: center;
-        }
+        main { margin-left: 300px; margin-right: 220px; flex-grow: 1; padding: 40px; display: flex; justify-content: center; }
 
         /* --- ASIDE DERECHA --- */
-        aside {
-            width: 220px;
-            position: fixed;
-            right: 0;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .author-tag {
-            background: rgba(30, 41, 59, 0.7);
-            padding: 12px;
-            border-radius: 12px;
-            border-right: 4px solid;
-            text-align: right;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
+        aside { width: 220px; position: fixed; right: 0; padding: 40px 20px; display: flex; flex-direction: column; gap: 15px; }
+        .author-tag { background: rgba(30, 41, 59, 0.7); padding: 12px; border-radius: 12px; border-right: 4px solid; text-align: right; font-size: 0.8rem; font-weight: 600; }
         .tag-sergio { border-color: var(--sergio); color: var(--sergio); }
         .tag-mario { border-color: var(--mario); color: var(--mario); }
         .tag-alvaro { border-color: var(--alvaro); color: var(--alvaro); }
@@ -139,7 +117,9 @@
     </nav>
 
     <main>
-        {{ content }}
+        <div style="width:100%; max-width:900px;">
+            {{ content }}
+        </div>
     </main>
 
     <aside>
