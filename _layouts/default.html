@@ -2,141 +2,48 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }} | Sergio, Mario y Álvaro</title>
+    <title>{{ page.title }}</title>
     <style>
-        :root {
-            --bg-dark: #0f172a; 
-            --sidebar-bg: #1e293b;
-            --card-bg: #ffffff;
-            --sergio: #c084fc;   
-            --mario: #fb923c;    
-            --alvaro: #2dd4bf;   
-            --text-muted: #94a3b8;
-            --accent-white: #f8fafc;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            margin: 0;
-            display: flex;
-            background-color: var(--bg-dark);
-            min-height: 100vh;
-        }
-
-        /* --- BARRA LATERAL IZQUIERDA --- */
-        nav {
-            width: 300px;
-            background-color: var(--sidebar-bg);
-            position: fixed;
-            left: 0;
-            height: 100vh;
-            padding: 30px 15px;
-            display: flex;
-            flex-direction: column;
-            box-sizing: border-box;
-            border-right: 1px solid rgba(255,255,255,0.05);
-            overflow-y: auto;
-        }
-
-        nav h1 {
-            color: white;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-            padding: 0 15px 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .nav-section-title {
-            color: white;
-            font-weight: 700;
-            font-size: 0.95rem;
-            padding: 15px 15px 5px;
-            display: block;
-        }
-
-        /* ESTILO PARA EL ENLACE DE INICIO */
-        .nav-inicio {
-            color: white;
-            text-decoration: none;
-            padding: 10px 15px;
-            font-weight: bold;
-            display: block;
-            border-radius: 8px;
-            transition: 0.3s;
-            margin-bottom: 10px;
-        }
-        .nav-inicio:hover { background: rgba(255,255,255,0.1); }
-
-        nav ul { list-style: none; padding: 0; margin: 0 0 20px 0; }
+        body { margin: 0; display: flex; background-color: #0f172a; min-height: 100vh; font-family: sans-serif; }
         
-        nav ul li a {
-            color: var(--text-muted);
-            text-decoration: none;
-            display: block;
-            padding: 8px 15px 8px 30px;
-            border-radius: 8px;
-            transition: all 0.2s;
-            font-size: 0.88rem;
-            position: relative;
-        }
+        /* Sidebar izquierda */
+        nav { width: 280px; background: #1e293b; color: white; height: 100vh; position: fixed; padding: 25px; box-sizing: border-box; }
+        nav a { display: block; color: #94a3b8; text-decoration: none; padding: 10px; margin: 5px 0; border-radius: 8px; font-size: 0.9rem; }
+        nav a:hover { background: rgba(255,255,255,0.05); color: white; }
+        .active-inicio { font-weight: bold; color: white; border-left: 3px solid #2dd4bf; padding-left: 15px; }
 
-        nav ul li a::before {
-            content: "•";
-            position: absolute;
-            left: 15px;
-            opacity: 0.5;
-        }
+        /* Contenido */
+        main { margin-left: 280px; margin-right: 200px; flex-grow: 1; padding: 40px; }
+        
+        /* Sidebar derecha (Autores) */
+        aside { width: 200px; position: fixed; right: 0; padding: 40px 20px; display: flex; flex-direction: column; gap: 15px; }
+        .auth { padding: 10px; border-radius: 8px; background: #1e293b; text-align: right; font-size: 0.8rem; border-right: 4px solid; }
+        .s { border-color: #c084fc; color: #c084fc; }
+        .m { border-color: #fb923c; color: #fb923c; }
+        .a { border-color: #2dd4bf; color: #2dd4bf; }
+    </style>
+</head>
+<body>
 
-        .nav-sergio:hover { color: var(--sergio) !important; background: rgba(192, 132, 252, 0.1); }
-        .nav-mario:hover { color: var(--mario) !important; background: rgba(251, 146, 60, 0.1); }
-        .nav-alvaro:hover { color: var(--alvaro) !important; background: rgba(45, 212, 191, 0.1); }
+    <nav>
+        <h2 style="font-size: 0.8rem; letter-spacing: 2px; opacity: 0.6;">SALUD DIGITAL</h2>
+        <a href="index.html" class="active-inicio">🏠 Inicio</a>
+        <p style="font-size: 0.8rem; margin-top: 20px; padding-left: 10px; color: #5eead4;">1. RIESGOS</p>
+        <a href="trastornos-musculoesqueleticos.html">• Trastornos Físicos</a>
+        <a href="fatiga-visual.html">• Fatiga Visual</a>
+        <a href="tecnoestres.html">• Carga Mental</a>
+    </nav>
 
-        /* --- PANEL DERECHO (AUTORES) --- */
-        aside {
-            width: 220px;
-            position: fixed;
-            right: 0;
-            height: 100vh;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+    <main>
+        {{ content }}
+    </main>
 
-        .author-card {
-            background: rgba(30, 41, 59, 0.7);
-            padding: 12px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: right;
-        }
+    <aside>
+        <div class="auth s">Sergio Quemada</div>
+        <div class="auth m">Mario Infantes T.</div>
+        <div class="auth a">Álvaro Zarza</div>
+    </aside>
 
-        .author-name { font-weight: 600; font-size: 0.8rem; }
-        .card-sergio { border-right: 4px solid var(--sergio); color: var(--sergio); }
-        .card-mario { border-right: 4px solid var(--mario); color: var(--mario); }
-        .card-alvaro { border-right: 4px solid var(--alvaro); color: var(--alvaro); }
+</body>
+</html>
 
-        /* --- CONTENIDO --- */
-        main {
-            margin-left: 300px;
-            margin-right: 220px;
-            flex-grow: 1;
-            padding: 40px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .content-card {
-            background: var(--card-bg);
-            width: 100%;
-            max-width: 850px;
-            padding: 60px;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        h1 { font-size: 2.2rem; color: #0f172a; margin-bottom: 20px; }
-        p { line-height: 1.7; color: #33415
