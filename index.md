@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 <header style="text-align: center; margin-bottom: 4rem;">
     <h2 style="font-size: 3rem; margin:0; background: linear-gradient(to right, #fff, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
         Prevención de Riesgos Laborales
@@ -13,12 +17,14 @@
         <p style="color: #94a3b8;">Prevención de lesiones músculo-esqueléticas y ergonomía.</p>
     </div>
 
-    <div class="card">
-        <span class="badge">Riesgo</span>
-        <i class="fas fa-eye" style="font-size: 2.5rem; color: var(--light-blue); margin-bottom: 1rem;"></i>
-        <h3>Fatiga Visual</h3>
-        <p style="color: #94a3b8;">Uso prolongado de pantallas y salud ocular.</p>
-    </div>
+    <a href="fatiga-visual.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+            <span class="badge">Riesgo</span>
+            <i class="fas fa-eye" style="font-size: 2.5rem; color: var(--light-blue); margin-bottom: 1rem;"></i>
+            <h3>Fatiga Visual</h3>
+            <p style="color: #94a3b8;">Uso prolongado de pantallas y salud ocular.</p>
+        </div>
+    </a>
 
     <div class="card">
         <span class="badge">Riesgo</span>
