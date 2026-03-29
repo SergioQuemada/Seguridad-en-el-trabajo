@@ -8,26 +8,68 @@
     
     <style>
         :root {
-            --bg-dark: #0f172a;
-            --card-bg: #1e293b;
+            --bg-dark: #0a0f1d;
+            --card-bg: #161e2e;
             --light-blue: #60a5fa;
             --text-gray: #94a3b8;
-            --border: #334155;
+            --border: #1e293b;
         }
 
         body {
             background-color: var(--bg-dark);
             color: white;
-            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             margin: 0;
-            padding: 2rem;
+            display: flex; /* Esto permite poner el menú al lado del contenido */
+            min-height: 100vh;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
+        /* --- MENÚ LATERAL --- */
+        nav {
+            width: 260px;
+            background: #0f172a;
+            border-right: 1px solid var(--border);
+            padding: 2rem 1rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            box-sizing: border-box;
         }
 
+        nav h2 { font-size: 1.2rem; color: var(--light-blue); margin-bottom: 2rem; padding-left: 10px; }
+
+        nav a {
+            display: block;
+            color: var(--text-gray);
+            text-decoration: none;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 5px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: var(--card-bg);
+            color: white;
+        }
+
+        nav a.active {
+            background: rgba(96, 165, 250, 0.1);
+            color: var(--light-blue);
+            font-weight: bold;
+        }
+
+        /* --- CONTENIDO PRINCIPAL --- */
+        main {
+            flex: 1;
+            padding: 3rem;
+            max-width: 1200px;
+        }
+
+        header { text-align: center; margin-bottom: 4rem; }
+        .main-title { font-size: 3rem; margin: 0; background: linear-gradient(to right, #fff, var(--light-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* GRID DE TARJETAS */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -37,35 +79,33 @@
 
         .card {
             background: var(--card-bg);
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 1rem;
             border: 1px solid var(--border);
-            transition: all 0.3s ease;
-            position: relative;
-            height: 100%;
-            box-sizing: border-box;
+            transition: 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             border-color: var(--light-blue);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
         .badge {
             background: rgba(96, 165, 250, 0.1);
             color: var(--light-blue);
-            padding: 0.2rem 0.8rem;
-            border-radius: 99px;
+            padding: 4px 12px;
+            border-radius: 20px;
             font-size: 0.75rem;
             font-weight: bold;
+            margin-bottom: 1.5rem;
             display: inline-block;
-            margin-bottom: 1rem;
         }
 
-        h3 { margin: 0.5rem 0; font-size: 1.5rem; color: #fff; }
-
-        a { text-decoration: none; color: inherit; }
+        h3 { margin: 1rem 0; font-size: 1.5rem; }
 
         #referencias {
             background: var(--card-bg);
@@ -77,71 +117,59 @@
 </head>
 <body>
 
-<div class="container">
-    <header style="text-align: center; margin-bottom: 4rem;">
-        <h2 style="font-size: 3rem; margin:0; background: linear-gradient(to right, #fff, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-            Prevención de Riesgos Laborales
-        </h2>
-        <p style="color: #94a3b8;">Optimiza tu entorno de trabajo digital</p>
-    </header>
+    <nav>
+        <h2>Riesgos IT</h2>
+        <a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a>
+        <a href="trastornosfísicos.html"><i class="fas fa-bone"></i> Trastornos Físicos</a>
+        <a href="fatiga-visual.html"><i class="fas fa-eye"></i> Fatiga Visual</a>
+        <a href="#"><i class="fas fa-brain"></i> Carga Mental</a>
+        <a href="#"><i class="fas fa-chair"></i> Diseño Puesto</a>
+    </nav>
 
-    <div class="grid-container">
-        
-        <a href="trastornosfísicos.html">
-            <div class="card">
+    <main>
+        <header>
+            <h1 class="main-title">Prevención de Riesgos Laborales</h1>
+            <p style="color: var(--text-gray);">Optimiza tu entorno de trabajo digital</p>
+        </header>
+
+        <div class="grid-container">
+            <a href="trastornosfísicos.html" class="card">
                 <span class="badge">Riesgo</span><br>
                 <i class="fas fa-bone" style="font-size: 2.5rem; color: var(--light-blue); margin-bottom: 1rem;"></i>
                 <h3>Trastornos Físicos</h3>
-                <p style="color: #94a3b8;">Prevención de lesiones músculo-esqueléticas y ergonomía.</p>
+                <p style="color: var(--text-gray);">Prevención de lesiones músculo-esqueléticas y ergonomía.</p>
+            </a>
+
+            <a href="fatiga-visual.html" class="card">
+                <span class="badge">Riesgo</span><br>
+                <i class="fas fa-eye" style="font-size: 2.5rem; color: var(--light-blue); margin-bottom: 1rem;"></i>
+                <h3>Fatiga Visual</h3>
+                <p style="color: var(--text-gray);">Uso prolongado de pantallas y salud ocular.</p>
+            </a>
+
+            <div class="card">
+                <span class="badge">Riesgo</span><br>
+                <i class="fas fa-brain" style="font-size: 2.5rem; color: var(--light-blue); margin-bottom: 1rem;"></i>
+                <h3>Carga Mental</h3>
+                <p style="color: var(--text-gray);">Gestión del estrés y fatiga psicológica.</p>
             </div>
-        </a>
 
-        <div class="card">
-            <span class="badge">Riesgo</span><br>
-            <i class="fas fa-eye" style="font-size: 2.5rem; color: var(--light-blue); margin-bottom: 1rem;"></i>
-            <h3>Fatiga Visual</h3>
-            <p style="color: #94a3b8;">Uso prolongado de pantallas y salud ocular.</p>
+            <div class="card">
+                <span class="badge">Medida</span><br>
+                <i class="fas fa-chair" style="font-size: 2.5rem; color: var(--light-blue); margin-bottom: 1rem;"></i>
+                <h3>Diseño del Puesto</h3>
+                <p style="color: var(--text-gray);">Mobiliario y organización del espacio.</p>
+            </div>
         </div>
 
-        <div class="card">
-            <span class="badge">Riesgo</span><br>
-            <i class="fas fa-brain" style="font-size: 2.5rem; color: var(--light-blue); margin-bottom: 1rem;"></i>
-            <h3>Carga Mental</h3>
-            <p style="color: #94a3b8;">Gestión del estrés y fatiga psicológica.</p>
-        </div>
-
-        <div class="card">
-            <span class="badge">Medida</span><br>
-            <i class="fas fa-chair" style="font-size: 2.5rem; color: var(--light-blue); margin-bottom: 1rem;"></i>
-            <h3>Diseño del Puesto</h3>
-            <p style="color: #94a3b8;">Mobiliario y organización del espacio.</p>
-        </div>
-
-        <div class="card">
-            <span class="badge">Medida</span><br>
-            <i class="fas fa-walking" style="font-size: 2.5rem; color: var(--light-blue); margin-bottom: 1rem;"></i>
-            <h3>Ejercicios y Pausas</h3>
-            <p style="color: #94a3b8;">Rutinas activas contra el sedentarismo.</p>
-        </div>
-
-        <div class="card">
-            <span class="badge">Medida</span><br>
-            <i class="fas fa-leaf" style="font-size: 2.5rem; color: var(--light-blue); margin-bottom: 1rem;"></i>
-            <h3>Higiene Ambiental</h3>
-            <p style="color: #94a3b8;">Luz, temperatura y calidad del aire.</p>
-        </div>
-
-    </div>
-
-    <section id="referencias">
-        <h3 style="color: var(--light-blue);"><i class="fas fa-book"></i> Referencias Bibliográficas</h3>
-        <ul style="color: #94a3b8; line-height: 1.8;">
-            <li><strong>INSST:</strong> Guía técnica para la evaluación y prevención de riesgos relativos a PVD.</li>
-            <li><strong>ISO 9241:</strong> Requisitos ergonómicos para trabajos de oficina con pantallas.</li>
-            <li><strong>Ley 31/1995:</strong> Ley de Prevención de Riesgos Laborales.</li>
-        </ul>
-    </section>
-</div>
+        <section id="referencias">
+            <h3 style="color: var(--light-blue);"><i class="fas fa-book"></i> Referencias</h3>
+            <ul style="color: var(--text-gray); line-height: 1.8; list-style: none; padding: 0;">
+                <li><strong>INSST:</strong> Guía técnica prevención PVD.</li>
+                <li><strong>ISO 9241:</strong> Requisitos ergonómicos oficina.</li>
+            </ul>
+        </section>
+    </main>
 
 </body>
 </html>
