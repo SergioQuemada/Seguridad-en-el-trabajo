@@ -3,155 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trastornos Físicos - IT</title>
+    <title>Trastornos Físicos - Prevención IT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --bg-dark: #0a0f1d;
+            --sidebar-bg: #0f172a;
+            --card-bg: #161e2e;
+            --light-blue: #60a5fa;
+            --accent-blue: #3b82f6;
+            --text-gray: #94a3b8;
+            --border: #1e293b;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
         body {
-            font-family: "Segoe UI", Arial, sans-serif;
-            line-height: 1.7;
-            color: #222;
-            background-color: #f4f7f9;
-            margin: 0;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        .header-banner {
-            text-align: center;
-            padding: 30px;
-            border-radius: 12px;
-            background: linear-gradient(90deg, #d9534f, #007bff);
+            background-color: var(--bg-dark);
             color: white;
-            margin-bottom: 30px;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
         }
 
-        .eco-card {
-            background: #ffffff;
-            border-radius: 14px;
-            padding: 25px;
-            border: 1px solid #dfe3e8;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        nav {
+            width: 280px;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--border);
+            padding: 2rem 1rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            box-sizing: border-box;
+            flex-shrink: 0;
+        }
+
+        nav h2 { font-size: 1.1rem; color: var(--light-blue); margin-bottom: 2rem; text-transform: uppercase; padding-left: 10px; }
+        nav a {
+            display: flex;
+            align-items: center;
+            color: var(--text-gray);
+            text-decoration: none;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 5px;
+            transition: 0.3s;
+        }
+        nav a i { margin-right: 12px; width: 20px; text-align: center; }
+        nav a:hover, nav a.active { background: rgba(96, 165, 250, 0.1); color: var(--light-blue); font-weight: bold; }
+
+        main { flex: 1; padding: 3rem; max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; }
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(10, 15, 29, 0) 100%);
+            padding: 3rem;
+            border-radius: 2rem;
+            border: 1px solid var(--border);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .hero-section h1 { 
+            font-size: 3rem; 
+            margin: 0; 
+            background: linear-gradient(to right, #fff, var(--light-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            border: 1px solid var(--border);
+            margin-bottom: 2.5rem;
             transition: 0.3s ease;
-            margin-bottom: 25px;
         }
 
-        .eco-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        .section-card:hover { transform: translateY(-5px); border-color: var(--accent-blue); }
+
+        h2 { color: var(--light-blue); font-size: 1.8rem; display: flex; align-items: center; gap: 15px; }
+        p { color: var(--text-gray); line-height: 1.8; font-size: 1.1rem; }
+
+        .pathology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
 
-        .eco-red { border-left: 8px solid #d9534f; }
-        .eco-blue { border-left: 8px solid #007bff; }
-        .eco-green { border-left: 8px solid #28a745; }
-
-        .eco-title { font-size: 1.4em; font-weight: bold; margin-bottom: 12px; }
-
-        .tabla-eco {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        .pathology-card {
+            background: var(--glass);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
-        .tabla-eco thead tr { background: #d9534f; color: white; text-align: left; }
-        .tabla-eco th, .tabla-eco td { padding: 14px; border-bottom: 1px solid #eee; }
+        .pathology-card h4 { margin: 0 0 10px 0; color: #fff; }
 
-        .nav-footer {
+        .footer-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
         }
 
-        .btn-nav {
-            text-decoration: none;
-            padding: 12px 25px;
-            background: #f8f9fa;
-            color: #222;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-weight: bold;
-            transition: 0.3s ease;
-            display: inline-block;
-        }
-
-        .btn-nav:hover {
-            background: #d9534f;
+        .nav-button {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             color: white;
-            border-color: #d9534f;
+            text-decoration: none;
+            background: var(--card-bg);
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+            font-weight: 600;
         }
+
+        .nav-button:hover {
+            background: var(--light-blue);
+            color: var(--bg-dark);
+            border-color: var(--light-blue);
+        }
+
+        .author-footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            padding-bottom: 2rem;
+        }
+
+        ul { list-style: none; padding: 0; color: var(--text-gray); line-height: 2; }
+        ul li::before { content: "• "; color: var(--light-blue); font-weight: bold; }
     </style>
 </head>
 <body>
 
-<div class="container">
+    <nav>
+        <h2>Prevención IT</h2>
+        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+        <a href="Trastornosfísicos.html" class="active"><i class="fas fa-bone"></i> Trastornos Físicos</a>
+        <a href="fatiga-visual.html"><i class="fas fa-eye"></i> Fatiga Visual</a>
+        <a href="carga-mental.html"><i class="fas fa-brain"></i> Carga Mental</a>
+        <a href="pausas.html"><i class="fas fa-walking"></i> Ejercicios y Pausas</a>
+    </nav>
 
-    <header class="header-banner">
-        <h1 style="margin: 0; font-size: 2.3em;">Trastornos Físicos</h1>
-        <p style="margin-top: 5px;">Salud y Ergonomía en Informática</p>
-    </header>
+    <main>
+        <div class="hero-section">
+            <h1><i class="fas fa-bone"></i> Trastornos Físicos</h1>
+            <p>Prevención de lesiones y ergonomía en el entorno digital.</p>
+        </div>
 
-    <div class="eco-card eco-red">
-        <div class="eco-title">🔹 Dolor de Cuello</div>
-        <p>Aparece por pantallas mal situadas o posturas mantenidas sin descanso.</p>
-    </div>
+        <section class="section-card">
+            <h2><i class="fas fa-info-circle"></i> Impacto en la Salud</h2>
+            <p>El sedentarismo y las posturas incorrectas son los principales enemigos del informático. Mantener una postura estática durante horas sobrecarga los tejidos blandos y las articulaciones.</p>
+        </section>
 
-    <div class="eco-card eco-blue">
-        <div class="eco-title">🔹 Manos y Muñecas</div>
-        <p>Causado por movimientos repetitivos y falta de apoyo en el teclado.</p>
-    </div>
+        <section class="section-card">
+            <h2><i class="fas fa-user-md"></i> Patologías Comunes</h2>
+            <div class="pathology-grid">
+                <div class="pathology-card">
+                    <h4>Cervicalgia</h4>
+                    <p>Dolor de cuello por mala posición del monitor.</p>
+                </div>
+                <div class="pathology-card">
+                    <h4>Túnel Carpiano</h4>
+                    <p>Entumecimiento por uso excesivo de ratón.</p>
+                </div>
+                <div class="pathology-card">
+                    <h4>Lumbalgia</h4>
+                    <p>Dolor lumbar por falta de apoyo en la espalda.</p>
+                </div>
+            </div>
+        </section>
 
-    <table class="tabla-eco">
-        <thead>
-            <tr>
-                <th>Trastorno</th>
-                <th>Causa</th>
-                <th>Efecto</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Lumbalgia</td>
-                <td>Silla inadecuada</td>
-                <td>Dolor de espalda</td>
-            </tr>
-            <tr>
-                <td>Entumecimiento</td>
-                <td>Pies sin apoyo</td>
-                <td>Mala circulación</td>
-            </tr>
-        </tbody>
-    </table>
+        <section class="section-card">
+            <h2><i class="fas fa-check-double"></i> Medidas Ergonómicas</h2>
+            <ul>
+                <li><strong>Monitor:</strong> A la altura de los ojos y a un brazo de distancia.</li>
+                <li><strong>Teclado y Ratón:</strong> Codos a 90 grados y antebrazos apoyados.</li>
+                <li><strong>Silla:</strong> Regulable con soporte lumbar firme.</li>
+            </ul>
+        </section>
 
-    <div class="eco-card eco-green">
-        <div class="eco-title">Conclusión</div>
-        <p>Es fundamental realizar pausas y ajustar el equipo ergonómicamente.</p>
-    </div>
+        <div class="footer-nav">
+            <a href="index.html" class="nav-button">
+                <i class="fas fa-arrow-left"></i> Volver a Inicio
+            </a>
+            <a href="fatiga-visual.html" class="nav-button">
+                Fatiga Visual <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
 
-    <footer class="nav-footer">
-        
-        <a href="index.html" class="btn-nav">
-            🏠 Volver a inicio
-        </a>
-
-        <a href="fatiga-visual.html" class="btn-nav">
-            Fatiga Visual ➜
-        </a>
-
-    </footer>
-
-</div>
+        <div class="author-footer">
+            Autor: Sergio Quemada López
+        </div>
+    </main>
 
 </body>
 </html>
