@@ -3,228 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trastornos Físicos - Sector Informático</title>
+    <title>Salud Laboral IT - Trastornos Físicos</title>
     <style>
+        /* VARIABLES DE DISEÑO PRO */
         :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-            --bg-color: #f4f7f6;
-            --text-color: #333;
-            --white: #ffffff;
+            --bg-dark: #0d1117;
+            --card-bg: #161b22;
+            --text-main: #c9d1d9;
+            --accent-blue: #58a6ff;
+            --accent-purple: #bc85ff;
+            --accent-red: #ff7b72;
+            --border-color: #30363d;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px;
+            line-height: 1.6;
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
-            background: var(--white);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
-        /* Título Principal con Recuadro de Colores */
-        .main-header {
-            border: 4px solid var(--accent-color);
-            padding: 20px;
+        /* RECUADRO DE TÍTULO CON DEGRADADO */
+        .header-box {
+            border: 6px solid;
+            border-image: linear-gradient(45deg, var(--accent-blue), var(--accent-purple), var(--accent-red)) 1;
+            padding: 40px 20px;
             text-align: center;
-            margin-bottom: 40px;
-            border-image: linear-gradient(to right, #3498db, #9b59b6) 1;
-            background-color: #fcfcfc;
+            background: rgba(22, 27, 34, 0.8);
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         h1 {
-            color: var(--primary-color);
+            font-size: 2.8rem;
+            color: #ffffff;
             margin: 0;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 2.5rem;
+            letter-spacing: 3px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--accent-blue);
+            margin-top: 10px;
+            font-weight: 300;
+        }
+
+        /* SECCIONES */
+        section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-purple);
         }
 
         h2 {
-            color: var(--accent-color);
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-top: 30px;
             font-size: 1.8rem;
-        }
-
-        .highlight-box {
-            background-color: #eef7fd;
-            border-left: 5px solid var(--accent-color);
-            padding: 15px;
-            margin-bottom: 20px;
-            font-style: italic;
+            color: var(--accent-blue);
+            margin-top: 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
         }
 
         ul {
-            padding-left: 20px;
+            list-style: none;
+            padding: 0;
         }
 
         li {
-            margin-bottom: 8px;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
         }
 
-        /* Estilo de la Tabla */
+        li::before {
+            content: "➜";
+            margin-right: 15px;
+            color: var(--accent-red);
+        }
+
+        /* TABLA COMPARATIVA */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 40px 0;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 30px 0;
-            font-size: 0.95rem;
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
         }
 
-        table th {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px;
+        th {
+            background-color: #21262d;
+            color: #ffffff;
+            padding: 15px;
             text-align: left;
+            border-bottom: 2px solid var(--accent-purple);
         }
 
-        table td {
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
+        td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        table tr:nth-child(even) {
-            background-color: #f9f9f9;
+        tr:hover {
+            background-color: #1f242c;
         }
 
-        /* Navegación Inferior */
-        .navigation {
+        /* NAVEGACIÓN INFERIOR */
+        footer {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-top: 50px;
+            margin-top: 60px;
             padding-top: 20px;
-            border-top: 2px solid #eee;
+            border-top: 1px solid var(--border-color);
         }
 
         .nav-link {
             text-decoration: none;
-            color: var(--primary-color);
+            color: #ffffff;
+            background: #21262d;
+            padding: 12px 25px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
             font-weight: bold;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
         }
 
         .nav-link:hover {
-            color: var(--accent-color);
+            background: var(--accent-blue);
+            border-color: #ffffff;
+            transform: scale(1.05);
         }
 
-        .arrow {
-            font-size: 1.5rem;
-            margin: 0 10px;
-        }
-
-        .summary {
-            background: #fdf2e9;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
+        .arrow { font-size: 1.4rem; }
+        .m-right { margin-right: 10px; }
+        .m-left { margin-left: 10px; }
 
     </style>
 </head>
 <body>
 
 <div class="container">
-    <header class="main-header">
+    <header class="header-box">
         <h1>Trastornos Físicos</h1>
-        <p>Derivados del trabajo en el sector informático</p>
+        <div class="subtitle">Riesgos Derivados del Trabajo Informático</div>
     </header>
 
-    <div class="highlight-box">
-        El trabajo prolongado con ordenadores puede generar diversos trastornos musculoesqueléticos por posturas incorrectas, equipos mal ajustados o movimientos repetitivos.
+    <section>
+        <h2>🔹 Dolor de Cuello y Cervicales</h2>
+        <p>Aparece por mantener posturas estáticas o forzadas durante la jornada.</p>
+        <ul>
+            <li>Pantallas colocadas a una altura incorrecta.</li>
+            <li>Girar el cuello constantemente hacia un lado para mirar el monitor.</li>
+            <li>Uso excesivo de dispositivos móviles sin soporte.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>🔹 Hombros y Espalda Alta</h2>
+        <p>Se manifiesta como tensión en la zona escapular y trapecios.</p>
+        <ul>
+            <li>No apoyar correctamente los antebrazos en la mesa.</li>
+            <li>Mesas demasiado elevadas que fuerzan la subida de hombros.</li>
+            <li>Ratón o teclado alejados del cuerpo.</li>
+        </ul>
+    </section>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Zona</th>
+                    <th>Factor de Riesgo</th>
+                    <th>Consecuencia</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Lumbar</td>
+                    <td>Silla sin apoyo adecuado</td>
+                    <td>Sobrecarga vertebral</td>
+                </tr>
+                <tr>
+                    <td>Muñecas</td>
+                    <td>Movimientos repetitivos</td>
+                    <td>Síndrome del Túnel Carpiano</td>
+                </tr>
+                <tr>
+                    <td>Piernas</td>
+                    <td>Falta de movimiento</td>
+                    <td>Problemas circulatorios</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <section>
-        <h2>🔹 Dolor de Cuello (Cervical)</h2>
-        <p>Aparece cuando el trabajador mantiene el cuello girado, flexionado o extendido durante largos periodos.</p>
+        <h2>🔹 Espalda y Zona Lumbar</h2>
+        <p>El sedentarismo prolongado es el mayor enemigo de nuestra columna.</p>
         <ul>
-            <li>Pantallas colocadas demasiado altas o bajas.</li>
-            <li>Monitores situados a un lado, obligando a girar la cabeza.</li>
-            <li>Posturas mantenidas sin descanso.</li>
+            <li>Inclinación del tronco hacia adelante o hacia los lados.</li>
+            <li>Sillas demasiado rígidas o sin ajuste de profundidad.</li>
+            <li>Falta de cambios de postura (micro-pausas).</li>
         </ul>
     </section>
 
     <section>
-        <h2>🔹 Hombros y Parte Alta de la Espalda</h2>
-        <p>Relacionado con la tensión de la musculatura de la cintura escapular.</p>
+        <h2>🔹 Manos, Muñecas y Piernas</h2>
+        <p>Afecta a la movilidad fina y a la circulación de retorno.</p>
         <ul>
-            <li>Falta de apoyo en antebrazos al teclear o usar el ratón.</li>
-            <li>Mesa demasiado alta (hombros elevados).</li>
-            <li>Teclado o ratón mal colocados que requieren estiramientos.</li>
+            <li>Posiciones forzadas de la muñeca (hacia arriba o hacia abajo).</li>
+            <li>Presión en la parte posterior de la rodilla por sillas altas.</li>
+            <li>Entumecimiento por falta de apoyo firme de los pies.</li>
         </ul>
     </section>
 
-    <section>
-        <h2>🔹 Zona Lumbar y Dorsal</h2>
-        <p>La postura sentada prolongada carga vértebras, ligamentos y musculatura.</p>
-        <ul>
-            <li>Sillas sin apoyo lumbar adecuado.</li>
-            <li>Inclinaciones del tronco hacia adelante o los lados.</li>
-            <li>Respaldo mal ajustado o rígido.</li>
-        </ul>
-    </section>
-
-    <h2>Resumen de Factores de Riesgo</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Zona Afectada</th>
-                <th>Causa Principal</th>
-                <th>Síntoma Común</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Manos y Muñecas</td>
-                <td>Posiciones forzadas y movimientos repetitivos</td>
-                <td>Túnel carpiano / Hormigueo</td>
-            </tr>
-            <tr>
-                <td>Piernas</td>
-                <td>Silla alta o mala posición de los pies</td>
-                <td>Mala circulación / Entumecimiento</td>
-            </tr>
-            <tr>
-                <td>General</td>
-                <td>Postura estática prolongada</td>
-                <td>Fatiga muscular acumulada</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <section>
-        <h2>🔹 Manos y Muñecas</h2>
-        <p>Debido al mantenimiento de la muñeca en posiciones forzadas (flexión o extensión).</p>
-        <ul>
-            <li>Teclados demasiado altos o inclinados.</li>
-            <li>Tareas intensivas de introducción de datos.</li>
-            <li>Uso excesivo y repetitivo del ratón.</li>
-        </ul>
-    </section>
-
-    <section class="summary">
-        <h3>En resumen...</h3>
-        <p>Los trastornos físicos se deben principalmente a <strong>posturas inadecuadas</strong>, <strong>malas posiciones del equipo</strong> y <strong>sedentarismo prolongado</strong>. La prevención pasa por un ajuste ergonómico del puesto de trabajo y pausas activas.</p>
-    </section>
-
-    <footer class="navigation">
+    <footer>
         <a href="#" class="nav-link">
-            <span class="arrow">←</span> Volver al menú principal
+            <span class="arrow m-right">←</span> Volver al menú principal
         </a>
         <a href="#" class="nav-link">
-            Fatiga visual <span class="arrow">→</span>
+            Fatiga visual <span class="arrow m-left">→</span>
         </a>
     </footer>
 </div>
