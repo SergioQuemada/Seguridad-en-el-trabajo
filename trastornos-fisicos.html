@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --bg-dark: #0a0f1d; /* Fondo más oscuro para que resalte el menú */
+            --bg-dark: #0a0f1d;
             --sidebar-bg: #0f172a;
             --card-bg: #1e293b;
             --blue: #3b82f6;
@@ -25,10 +25,11 @@
             color: var(--text-main);
             font-family: 'Inter', 'Segoe UI', sans-serif;
             margin: 0;
-            display: flex; /* CAMBIO: Ahora es flex para la barra lateral */
+            display: flex;
             min-height: 100vh;
         }
 
+        /* --- MENÚ LATERAL --- */
         nav {
             width: 260px;
             background: var(--sidebar-bg);
@@ -42,13 +43,7 @@
             overflow-y: auto;
         }
 
-        nav h2 { 
-            font-size: 1.1rem; 
-            color: white; 
-            margin-bottom: 2rem; 
-            padding-left: 10px;
-            font-weight: bold;
-        }
+        nav h2 { font-size: 1.1rem; color: white; margin-bottom: 2rem; padding-left: 10px; font-weight: bold; }
 
         .menu-category {
             font-size: 0.7rem;
@@ -72,24 +67,11 @@
         }
 
         nav a i { margin-right: 12px; width: 18px; text-align: center; }
+        nav a.active { background: var(--blue); color: white; font-weight: 500; }
+        nav a:hover:not(.active) { background: rgba(255, 255, 255, 0.05); color: white; }
 
-        nav a.active { 
-            background: var(--blue); 
-            color: white; 
-            font-weight: 500; 
-        }
-
-        nav a:hover:not(.active) { 
-            background: rgba(255, 255, 255, 0.05); 
-            color: white; 
-        }
-
-        main { 
-            flex: 1; /* Ocupa el resto de la pantalla */
-            padding: 3rem 2rem; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-        }
+        /* --- CONTENIDO --- */
+        main { flex: 1; padding: 3rem 2rem; max-width: 1200px; margin: 0 auto; }
 
         .header-box {
             text-align: center;
@@ -106,92 +88,83 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .header-box p { 
-            font-size: 1.1rem; 
-            color: var(--text-dim); 
-            max-width: 800px; 
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
         }
 
         .info-card {
             background: var(--card-bg);
             border-radius: 24px;
-            padding: 2rem;
+            padding: 2.5rem;
             border: 1px solid rgba(255,255,255,0.05);
             transition: all 0.4s ease;
         }
 
-        .info-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255,255,255,0.2);
-        }
-
         .card-img {
-            width: calc(100% + 4rem);
-            height: 180px;
+            width: calc(100% + 5rem);
+            height: 200px;
             object-fit: cover;
-            margin: -2rem -2rem 1.5rem -2rem;
+            margin: -2.5rem -2.5rem 1.5rem -2.5rem;
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        .info-card h3 { 
-            display: flex; 
-            align-items: center; 
-            gap: 12px; 
-            font-size: 1.4rem; 
-            margin: 0 0 1rem 0;
+        .info-card h3 { display: flex; align-items: center; gap: 15px; font-size: 1.6rem; margin: 0 0 1rem 0; }
+        
+        /* Colores de las tarjetas */
+        .card-cuello { border-left: 6px solid var(--cyan); } .card-cuello h3 { color: var(--cyan); }
+        .card-hombros { border-left: 6px solid var(--purple); } .card-hombros h3 { color: var(--purple); }
+        .card-espalda { border-left: 6px solid var(--blue); } .card-espalda h3 { color: var(--blue); }
+        .card-manos { border-left: 6px solid var(--rose); } .card-manos h3 { color: var(--rose); }
+        .card-piernas { border-left: 6px solid var(--amber); } .card-piernas h3 { color: var(--amber); }
+        .card-fatiga { border-left: 6px solid #fff; }
+
+        p { color: var(--text-dim); line-height: 1.8; font-size: 1.05rem; }
+        ul { padding-left: 1.2rem; color: var(--text-dim); line-height: 1.8; }
+        strong { color: white; display: block; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+
+        /* --- BOTONES NAVEGACIÓN --- */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 6rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        .card-cuello { border-left: 5px solid var(--cyan); }
-        .card-cuello h3 { color: var(--cyan); }
-        .card-hombros { border-left: 5px solid var(--purple); }
-        .card-hombros h3 { color: var(--purple); }
-        .card-espalda { border-left: 5px solid var(--blue); }
-        .card-espalda h3 { color: var(--blue); }
-        .card-manos { border-left: 5px solid var(--rose); }
-        .card-manos h3 { color: var(--rose); }
-        .card-piernas { border-left: 5px solid var(--amber); }
-        .card-piernas h3 { color: var(--amber); }
-
-        p { color: var(--text-dim); line-height: 1.6; }
-        ul { padding-left: 1.2rem; color: var(--text-dim); }
-        strong { color: white; display: block; margin-top: 1rem; margin-bottom: 0.5rem; }
-
-        .author {
-            text-align: center;
-            margin-top: 4rem;
-            color: var(--text-dim);
-            font-size: 0.9rem;
+        .nav-btn {
+            text-decoration: none;
+            color: white;
+            padding: 16px 30px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.05);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.1);
         }
+
+        .nav-btn:hover { background: var(--blue); transform: scale(1.05); }
+
+        .author { text-align: center; margin-top: 4rem; color: var(--text-dim); padding-bottom: 3rem; }
     </style>
 </head>
 <body>
 
     <nav>
         <h2>SALUD & IT</h2>
-        
         <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
-
         <div class="menu-category">1. RIESGOS</div>
         <a href="trastornos-fisicos.html" class="active"><i class="fas fa-bone"></i> T. Físicos</a>
         <a href="fatiga-visual.html"><i class="fas fa-eye"></i> Fatiga Visual</a>
         <a href="carga-mental.html"><i class="fas fa-brain"></i> Carga Mental</a>
-
         <div class="menu-category">2. PREVENCIÓN</div>
         <a href="#"><i class="fas fa-chair"></i> Diseño Puesto</a>
         <a href="pausas.html"><i class="fas fa-walking"></i> Pausas</a>
         <a href="#"><i class="fas fa-leaf"></i> Higiene</a>
-
-        <div style="margin-top: auto; padding-top: 2rem; border-top: 1px solid var(--border);">
-            <a href="#referencias"><i class="fas fa-book"></i> Referencias</a>
-        </div>
     </nav>
 
     <main>
@@ -204,52 +177,52 @@
             <div class="info-card card-cuello">
                 <img src="dolor-de-cuello.avif" alt="Dolor de cuello" class="card-img">
                 <h3><i class="fas fa-head-side-virus"></i> Dolor de cuello</h3>
-                <p>Aparece cuando el cuello se mantiene girado o flexionado por mucho tiempo.</p>
-                <strong>Causas frecuentes:</strong>
-                <ul>
-                    <li>Pantallas demasiado bajas.</li>
-                    <li>Monitores a un lado.</li>
-                </ul>
+                <p>Aparece cuando el cuello se mantiene girado o flexionado.</p>
+                <ul><li>Pantallas bajas o monitores a un lado.</li></ul>
             </div>
 
             <div class="info-card card-hombros">
                 <img src="dolorhombro.jpg" alt="Dolor de hombros" class="card-img">
-                <h3><i class="fas fa-user-alt"></i> Hombros y Espalda</h3>
-                <p>Relacionadas con la tensión de la musculatura escapular.</p>
-                <strong>Causas frecuentes:</strong>
-                <ul>
-                    <li>No apoyar antebrazos.</li>
-                    <li>Mesa muy alta.</li>
-                </ul>
+                <h3><i class="fas fa-user-alt"></i> Hombros y Espalda Alta</h3>
+                <p>Tensión en la cintura escapular por hombros elevados.</p>
+                <ul><li>Mesa alta o falta de apoyo en antebrazos.</li></ul>
             </div>
 
             <div class="info-card card-espalda">
                 <img src="espaldabaja.jpg" alt="Dolor lumbar" class="card-img">
-                <h3><i class="fas fa-accessibility"></i> Zona Lumbar</h3>
-                <p>La postura sentada provoca carga en las vértebras y ligamentos.</p>
-                <strong>Factores:</strong>
-                <ul>
-                    <li>Sillas sin apoyo lumbar.</li>
-                    <li>Falta de cambios de postura.</li>
-                </ul>
+                <h3><i class="fas fa-accessibility"></i> Zona Lumbar y Dorsal</h3>
+                <p>Carga en vértebras por postura sentada prolongada.</p>
+                <ul><li>Sillas sin apoyo lumbar adecuado.</li></ul>
             </div>
 
             <div class="info-card card-manos">
                 <img src="tunelcarpiano.jpg" alt="Túnel carpiano" class="card-img">
                 <h3><i class="fas fa-hand-sparkles"></i> Manos y Muñecas</h3>
-                <p>Posiciones forzadas o movimientos repetitivos del ratón.</p>
-                <strong>Factores:</strong>
-                <ul>
-                    <li>Uso excesivo del ratón.</li>
-                    <li>Teclados mal inclinados.</li>
-                </ul>
+                <p>Posiciones forzadas y movimientos repetitivos.</p>
+                <ul><li>Uso excesivo del ratón y teclados altos.</li></ul>
+            </div>
+
+            <div class="info-card card-piernas">
+                <img src="piernasypies.jpg" alt="Circulación piernas" class="card-img">
+                <h3><i class="fas fa-shoe-prints"></i> Piernas y Circulación</h3>
+                <p>Entumecimiento por falta de apoyo o presión en rodillas.</p>
+                <ul><li>Pies que no apoyan correctamente en el suelo.</li></ul>
+            </div>
+
+            <div class="info-card card-fatiga">
+                <img src="general.avif" alt="Fatiga general" class="card-img">
+                <h3><i class="fas fa-battery-quarter"></i> Fatiga Muscular</h3>
+                <p>Tensión acumulada por mantener la misma postura horas.</p>
+                <ul><li>Falta de pausas activas durante la jornada.</li></ul>
             </div>
         </div>
 
-        <div class="author">
-            Autor: Sergio Quemada López
+        <div class="bottom-nav">
+            <a href="index.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Volver a Inicio</a>
+            <a href="fatiga-visual.html" class="nav-btn">Fatiga Visual <i class="fas fa-arrow-right"></i></a>
         </div>
-    </main>
 
+        <div class="author">Autor: Sergio Quemada López</div>
+    </main>
 </body>
 </html>
