@@ -3,249 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salud Laboral IT - Trastornos Físicos</title>
+    <title>Trastornos Físicos - Sector Informático</title>
     <style>
-        /* VARIABLES DE DISEÑO PRO */
-        :root {
-            --bg-dark: #0d1117;
-            --card-bg: #161b22;
-            --text-main: #c9d1d9;
-            --accent-blue: #58a6ff;
-            --accent-purple: #bc85ff;
-            --accent-red: #ff7b72;
-            --border-color: #30363d;
-        }
-
+        /* --- ESTILO GENERAL --- */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.7;
+            color: #222;
+            background-color: #f4f7f9;
             margin: 0;
-            padding: 40px 20px;
-            line-height: 1.6;
+            padding: 20px;
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
-        /* RECUADRO DE TÍTULO CON DEGRADADO */
-        .header-box {
-            border: 6px solid;
-            border-image: linear-gradient(45deg, var(--accent-blue), var(--accent-purple), var(--accent-red)) 1;
-            padding: 40px 20px;
+        /* --- TÍTULO PRINCIPAL (Estilo Degradado) --- */
+        .header-banner {
             text-align: center;
-            background: rgba(22, 27, 34, 0.8);
-            margin-bottom: 50px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            color: #ffffff;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--accent-blue);
-            margin-top: 10px;
-            font-weight: 300;
-        }
-
-        /* SECCIONES */
-        section {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
             padding: 30px;
+            border-radius: 12px;
+            background: linear-gradient(90deg, #d9534f, #f0ad4e); /* Tonos cálidos para salud */
+            color: white;
             margin-bottom: 30px;
-            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        section:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-purple);
+        /* --- TARJETAS ECO-STYLE --- */
+        .eco-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 25px;
+            border: 1px solid #dfe3e8;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            transition: 0.3s ease;
+            margin-bottom: 25px;
         }
 
-        h2 {
-            font-size: 1.8rem;
-            color: var(--accent-blue);
-            margin-top: 0;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
+        .eco-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
         }
 
-        ul {
-            list-style: none;
-            padding: 0;
-        }
+        /* Colores de borde para categorías */
+        .eco-red { border-left: 8px solid #d9534f; }    /* Cuello/Espalda */
+        .eco-blue { border-left: 8px solid #007bff; }   /* Extremidades */
+        .eco-yellow { border-left: 8px solid #f0ad4e; } /* General */
+        .eco-green { border-left: 8px solid #28a745; }  /* Conclusión */
 
-        li {
-            padding: 10px 0;
+        .eco-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
         }
 
-        li::before {
-            content: "➜";
-            margin-right: 15px;
-            color: var(--accent-red);
-        }
-
-        /* TABLA COMPARATIVA */
-        .table-wrap {
-            overflow-x: auto;
-            margin: 40px 0;
-        }
-
-        table {
+        /* --- ESTILO DE TABLAS --- */
+        .tabla-eco {
             width: 100%;
             border-collapse: collapse;
-            background: var(--card-bg);
-            border-radius: 8px;
+            margin: 25px 0;
+            font-size: 1em;
+            border-radius: 10px;
             overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
-        th {
-            background-color: #21262d;
-            color: #ffffff;
-            padding: 15px;
+        .tabla-eco thead tr {
+            background: #d9534f;
+            color: white;
             text-align: left;
-            border-bottom: 2px solid var(--accent-purple);
         }
 
-        td {
-            padding: 15px;
-            border-bottom: 1px solid var(--border-color);
+        .tabla-eco th, .tabla-eco td {
+            padding: 14px 18px;
+            border-bottom: 1px solid #e9ecef;
         }
 
-        tr:hover {
-            background-color: #1f242c;
+        .tabla-eco tbody tr:nth-child(even) {
+            background: #f8f9fa;
         }
 
-        /* NAVEGACIÓN INFERIOR */
-        footer {
+        /* --- NAVEGACIÓN INFERIOR --- */
+        .nav-container {
             display: flex;
             justify-content: space-between;
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: #ffffff;
-            background: #21262d;
-            padding: 12px 25px;
-            border-radius: 50px;
-            border: 1px solid var(--border-color);
-            font-weight: bold;
-            transition: all 0.3s ease;
-            display: flex;
             align-items: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
         }
 
-        .nav-link:hover {
-            background: var(--accent-blue);
-            border-color: #ffffff;
-            transform: scale(1.05);
+        .btn-nav {
+            text-decoration: none;
+            color: #d9534f;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: 0.3s;
         }
 
-        .arrow { font-size: 1.4rem; }
-        .m-right { margin-right: 10px; }
-        .m-left { margin-left: 10px; }
+        .btn-nav:hover {
+            color: #b52b27;
+            text-decoration: underline;
+        }
 
     </style>
 </head>
 <body>
 
 <div class="container">
-    <header class="header-box">
-        <h1>Trastornos Físicos</h1>
-        <div class="subtitle">Riesgos Derivados del Trabajo Informático</div>
+
+    <header class="header-banner">
+        <h1 style="margin: 0; font-size: 2.3em;">Trastornos Físicos en IT</h1>
+        <p style="margin: 5px 0 0 0; opacity: 0.9;">Riesgos derivados del trabajo prolongado con ordenadores</p>
     </header>
 
-    <section>
-        <h2>🔹 Dolor de Cuello y Cervicales</h2>
-        <p>Aparece por mantener posturas estáticas o forzadas durante la jornada.</p>
-        <ul>
-            <li>Pantallas colocadas a una altura incorrecta.</li>
-            <li>Girar el cuello constantemente hacia un lado para mirar el monitor.</li>
-            <li>Uso excesivo de dispositivos móviles sin soporte.</li>
-        </ul>
-    </section>
+    <p>El trabajo prolongado con ordenadores puede generar diversos trastornos musculoesqueléticos por posturas incorrectas, equipos mal ajustados o movimientos repetitivos.</p>
 
-    <section>
-        <h2>🔹 Hombros y Espalda Alta</h2>
-        <p>Se manifiesta como tensión en la zona escapular y trapecios.</p>
-        <ul>
-            <li>No apoyar correctamente los antebrazos en la mesa.</li>
-            <li>Mesas demasiado elevadas que fuerzan la subida de hombros.</li>
-            <li>Ratón o teclado alejados del cuerpo.</li>
+    <div class="eco-card eco-red">
+        <div class="eco-title">🔹 Dolor de Cuello</div>
+        <p>Aparece cuando el trabajador mantiene el cuello girado, flexionado o extendido durante largos periodos.</p>
+        <ul style="margin-top: 10px;">
+            <li>Pantallas colocadas demasiado altas o bajas.</li>
+            <li>Monitores situados a un lado, obligando a girar la cabeza.</li>
+            <li>Posturas mantenidas sin descanso.</li>
         </ul>
-    </section>
-
-    <div class="table-wrap">
-        <table>
-            <thead>
-                <tr>
-                    <th>Zona</th>
-                    <th>Factor de Riesgo</th>
-                    <th>Consecuencia</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Lumbar</td>
-                    <td>Silla sin apoyo adecuado</td>
-                    <td>Sobrecarga vertebral</td>
-                </tr>
-                <tr>
-                    <td>Muñecas</td>
-                    <td>Movimientos repetitivos</td>
-                    <td>Síndrome del Túnel Carpiano</td>
-                </tr>
-                <tr>
-                    <td>Piernas</td>
-                    <td>Falta de movimiento</td>
-                    <td>Problemas circulatorios</td>
-                </tr>
-            </tbody>
-        </table>
     </div>
 
-    <section>
-        <h2>🔹 Espalda y Zona Lumbar</h2>
-        <p>El sedentarismo prolongado es el mayor enemigo de nuestra columna.</p>
+    <div class="eco-card eco-red">
+        <div class="eco-title">🔹 Molestias en Hombros y Espalda</div>
+        <p>La postura sentada durante muchas horas provoca carga en las vértebras, ligamentos y musculatura.</p>
         <ul>
-            <li>Inclinación del tronco hacia adelante o hacia los lados.</li>
-            <li>Sillas demasiado rígidas o sin ajuste de profundidad.</li>
-            <li>Falta de cambios de postura (micro-pausas).</li>
+            <li>Falta de apoyo lumbar adecuado.</li>
+            <li>Mesa demasiado alta (eleva los hombros).</li>
+            <li>Inclinaciones del tronco hacia adelante.</li>
         </ul>
-    </section>
+    </div>
 
-    <section>
-        <h2>🔹 Manos, Muñecas y Piernas</h2>
-        <p>Afecta a la movilidad fina y a la circulación de retorno.</p>
+    <table class="tabla-eco">
+        <thead>
+            <tr>
+                <th>Zona Afectada</th>
+                <th>Causa Frecuente</th>
+                <th>Riesgo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Muñecas</td>
+                <td>Uso repetitivo del ratón</td>
+                <td>Túnel Carpiano</td>
+            </tr>
+            <tr>
+                <td>Piernas</td>
+                <td>Silla alta o mala posición</td>
+                <td>Mala circulación</td>
+            </tr>
+            <tr>
+                <td>General</td>
+                <td>Postura estática</td>
+                <td>Fatiga muscular</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="eco-card eco-blue">
+        <div class="eco-title">🔹 Molestias en Manos y Muñecas</div>
+        <p>Se deben al mantenimiento de la muñeca en posiciones forzadas o movimientos repetitivos intensos.</p>
         <ul>
-            <li>Posiciones forzadas de la muñeca (hacia arriba o hacia abajo).</li>
-            <li>Presión en la parte posterior de la rodilla por sillas altas.</li>
-            <li>Entumecimiento por falta de apoyo firme de los pies.</li>
+            <li>Teclados demasiado altos o inclinados.</li>
+            <li>Uso excesivo del ratón sin alfombrilla ergonómica.</li>
+            <li>Tareas intensivas de introducción de datos.</li>
         </ul>
-    </section>
+    </div>
 
-    <footer>
-        <a href="#" class="nav-link">
-            <span class="arrow m-right">←</span> Volver al menú principal
+    <div class="eco-card eco-yellow">
+        <div class="eco-title">🔹 Entumecimiento en Piernas</div>
+        <p>Permanecer sentado mucho tiempo provoca presión en la parte posterior de las rodillas y mala circulación.</p>
+    </div>
+
+    <div class="eco-card eco-green">
+        <div class="eco-title">En Resumen...</div>
+        <p>Los trastornos físicos en el sector informático se deben principalmente a <strong>posturas inadecuadas</strong> y <strong>permanencia prolongada</strong>. La prevención mediante pausas y ergonomía es fundamental.</p>
+    </div>
+
+    <div class="nav-container">
+        <a href="index.html" class="btn-nav">
+            🏠 Volver a Menú Principal
         </a>
-        <a href="#" class="nav-link">
-            Fatiga visual <span class="arrow m-left">→</span>
+        <a href="fatiga-visual.html" class="btn-nav">
+            Fatiga Visual ➜
         </a>
-    </footer>
+    </div>
+
 </div>
 
 </body>
