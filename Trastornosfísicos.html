@@ -23,7 +23,7 @@
             color: var(--text-main);
             font-family: 'Inter', 'Segoe UI', sans-serif;
             margin: 0;
-            display: block; /* Sin flexbox para el body */
+            display: block;
             min-height: 100vh;
         }
 
@@ -57,22 +57,35 @@
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .info-card {
             background: var(--card-bg);
             border-radius: 24px;
-            padding: 2.5rem;
+            padding: 0; /* Quitamos padding para que la imagen ajuste arriba si queremos, o manejamos interno */
             border: 1px solid rgba(255,255,255,0.05);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .info-card:hover {
             transform: translateY(-12px);
             box-shadow: 0 25px 50px rgba(0,0,0,0.5);
             border-color: rgba(255,255,255,0.2);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .card-content {
+            padding: 2rem;
         }
 
         .info-card h3 { 
@@ -84,28 +97,24 @@
             margin-bottom: 1rem;
         }
 
-        .card-cuello { border-left: 6px solid var(--cyan); }
+        /* Bordes de colores */
+        .card-cuello { border-top: 6px solid var(--cyan); }
         .card-cuello h3 { color: var(--cyan); }
-        
-        .card-hombros { border-left: 6px solid var(--purple); }
+        .card-hombros { border-top: 6px solid var(--purple); }
         .card-hombros h3 { color: var(--purple); }
-
-        .card-espalda { border-left: 6px solid var(--blue); }
+        .card-espalda { border-top: 6px solid var(--blue); }
         .card-espalda h3 { color: var(--blue); }
-
-        .card-manos { border-left: 6px solid var(--rose); }
+        .card-manos { border-top: 6px solid var(--rose); }
         .card-manos h3 { color: var(--rose); }
-
-        .card-piernas { border-left: 6px solid var(--amber); }
+        .card-piernas { border-top: 6px solid var(--amber); }
         .card-piernas h3 { color: var(--amber); }
+        .card-fatiga { border-top: 6px solid #fff; }
 
-        .card-fatiga { border-left: 6px solid #fff; }
-
-        p { color: var(--text-dim); line-height: 1.8; font-size: 1.1rem; }
-        ul { padding-left: 1.2rem; color: var(--text-dim); line-height: 1.8; }
-        ul li { margin-bottom: 10px; list-style-type: none; position: relative; }
-        ul li::before { content: "•"; color: inherit; position: absolute; left: -1.2rem; font-weight: bold; }
-        strong { color: white; display: block; margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.1rem; }
+        p { color: var(--text-dim); line-height: 1.7; font-size: 1.05rem; }
+        ul { padding-left: 1.2rem; color: var(--text-dim); line-height: 1.6; }
+        ul li { margin-bottom: 8px; list-style-type: none; position: relative; }
+        ul li::before { content: "•"; color: inherit; position: absolute; left: -1.2rem; }
+        strong { color: white; display: block; margin-top: 1.2rem; margin-bottom: 0.5rem; }
 
         .bottom-nav {
             display: flex;
@@ -126,23 +135,15 @@
             align-items: center;
             gap: 12px;
             font-weight: 600;
-            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .nav-btn:hover { 
-            background: var(--blue); 
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
-        }
+        .nav-btn:hover { background: var(--blue); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
 
         .author {
             text-align: center;
             margin-top: 4rem;
             color: var(--text-dim);
-            font-weight: 500;
-            letter-spacing: 1px;
             padding-bottom: 3rem;
-            font-size: 1rem;
         }
     </style>
 </head>
@@ -151,72 +152,84 @@
     <main>
         <section class="header-box">
             <h1>Trastornos Físicos</h1>
-            <p>Derivados del trabajo en el sector informático. El uso prolongado de ordenadores puede generar trastornos musculoesqueléticos que afectan principalmente a la espalda, cuello, hombros, brazos, muñecas y piernas.</p>
+            <p>Análisis detallado de los riesgos musculoesqueléticos en el entorno IT. La prevención comienza con un espacio de trabajo bien configurado.</p>
         </section>
 
         <div class="info-grid">
             
             <div class="info-card card-cuello">
-                <h3><i class="fas fa-head-side-virus"></i> Dolor de cuello</h3>
-                <p>Aparece cuando el trabajador mantiene el cuello girado, flexionado o extendido durante largos periodos.</p>
-                <strong>Causas frecuentes:</strong>
-                <ul>
-                    <li>Pantallas colocadas demasiado altas o bajas.</li>
-                    <li>Monitores situados a un lado, obligando a girar la cabeza.</li>
-                    <li>Posturas mantenidas sin descanso.</li>
-                </ul>
+                <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=800" alt="Dolor de cuello" class="card-image">
+                <div class="card-content">
+                    <h3><i class="fas fa-head-side-virus"></i> Dolor de cuello</h3>
+                    <p>Aparece cuando el cuello se mantiene girado o flexionado por largos periodos.</p>
+                    <strong>Causas frecuentes:</strong>
+                    <ul>
+                        <li>Pantallas a altura incorrecta.</li>
+                        <li>Giro constante de cabeza hacia un lado.</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="info-card card-hombros">
-                <h3><i class="fas fa-user-alt"></i> Hombros y Espalda Alta</h3>
-                <p>Relacionadas con la tensión de la musculatura de la cintura escapular (hombros elevados o en tensión).</p>
-                <strong>Suelen aparecer cuando:</strong>
-                <ul>
-                    <li>No se apoyan los antebrazos al teclear o usar el ratón.</li>
-                    <li>La mesa está demasiado alta, obligando a elevar los hombros.</li>
-                    <li>El teclado o ratón requieren estiramientos constantes.</li>
-                </ul>
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800" alt="Tensión hombros" class="card-image">
+                <div class="card-content">
+                    <h3><i class="fas fa-user-alt"></i> Hombros y Espalda Alta</h3>
+                    <p>Tensión en la cintura escapular por falta de apoyo en brazos.</p>
+                    <strong>Factores clave:</strong>
+                    <ul>
+                        <li>Mesa demasiado alta (hombros encogidos).</li>
+                        <li>Estiramientos constantes para alcanzar el ratón.</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="info-card card-espalda">
-                <h3><i class="fas fa-accessibility"></i> Zona Lumbar y Dorsal</h3>
-                <p>La postura sentada durante muchas horas provoca carga en las vértebras, ligamentos y musculatura.</p>
-                <strong>Factores que lo agravan:</strong>
-                <ul>
-                    <li>Sillas sin apoyo lumbar adecuado.</li>
-                    <li>Permanecer mucho tiempo sentado sin cambiar de postura.</li>
-                    <li>Inclinaciones del tronco hacia adelante o hacia los lados.</li>
-                    <li>Respaldo mal ajustado o demasiado rígido.</li>
-                </ul>
+                <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&q=80&w=800" alt="Dolor de espalda" class="card-image">
+                <div class="card-content">
+                    <h3><i class="fas fa-accessibility"></i> Zona Lumbar y Dorsal</h3>
+                    <p>Carga excesiva en vértebras por postura estática sentada.</p>
+                    <strong>Agravantes:</strong>
+                    <ul>
+                        <li>Sillas sin soporte lumbar adecuado.</li>
+                        <li>Inclinación del tronco hacia adelante.</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="info-card card-manos">
-                <h3><i class="fas fa-hand-sparkles"></i> Manos y Muñecas</h3>
-                <p>Debido al mantenimiento de la muñeca en posiciones forzadas: extendida, flexionada o desviada.</p>
-                <strong>Factores contribuyentes:</strong>
-                <ul>
-                    <li>Teclados demasiado altos o inclinados.</li>
-                    <li>Mesas muy altas y tareas intensivas de datos.</li>
-                    <li>Uso repetitivo del ratón (Síndrome del Túnel Carpiano).</li>
-                </ul>
+                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800" alt="Túnel carpiano" class="card-image">
+                <div class="card-content">
+                    <h3><i class="fas fa-hand-sparkles"></i> Manos y Muñecas</h3>
+                    <p>Posiciones forzadas que pueden derivar en Síndrome del Túnel Carpiano.</p>
+                    <strong>Riesgos:</strong>
+                    <ul>
+                        <li>Uso repetitivo e intensivo del ratón.</li>
+                        <li>Teclados con inclinación excesiva.</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="info-card card-piernas">
-                <h3><i class="fas fa-shoe-prints"></i> Piernas y Circulación</h3>
-                <p>Permanecer sentado mucho tiempo puede provocar entumecimiento y mala circulación.</p>
-                <strong>Ocurre especialmente cuando:</strong>
-                <ul>
-                    <li>La silla es demasiado grande o demasiado alta.</li>
-                    <li>Los pies no apoyan correctamente en el suelo.</li>
-                    <li>Presión en la parte posterior de las rodillas.</li>
-                </ul>
+                <img src="https://images.unsplash.com/photo-1591343395902-1adcb454c2e4?auto=format&fit=crop&q=80&w=800" alt="Piernas" class="card-image">
+                <div class="card-content">
+                    <h3><i class="fas fa-shoe-prints"></i> Piernas y Circulación</h3>
+                    <p>Entumecimiento y presión posterior por sillas mal ajustadas.</p>
+                    <strong>Causas:</strong>
+                    <ul>
+                        <li>Pies que no apoyan firmes en el suelo.</li>
+                        <li>Presión excesiva en el borde de la silla.</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="info-card card-fatiga">
-                <h3><i class="fas fa-battery-quarter"></i> Fatiga Muscular General</h3>
-                <p>Mantener una misma postura genera tensión acumulada en espalda, cuello, hombros, brazos y piernas.</p>
-                <strong>En resumen:</strong>
-                <p>Se deben a posturas inadecuadas, malas posiciones del equipo, movimientos repetitivos y permanencia prolongada en la misma postura.</p>
+                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=800" alt="Fatiga general" class="card-image">
+                <div class="card-content">
+                    <h3><i class="fas fa-battery-quarter"></i> Fatiga Muscular</h3>
+                    <p>Tensión acumulada general por inmovilidad prolongada.</p>
+                    <strong>Conclusión:</strong>
+                    <p>Es vital alternar posturas y realizar pausas activas para liberar la tensión estática.</p>
+                </div>
             </div>
 
         </div>
