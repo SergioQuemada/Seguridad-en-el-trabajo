@@ -3,143 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trastornos Físicos - Prevención IT</title>
+    <title>Trastornos Físicos - Detalle Completo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --bg-dark: #0a0f1d;
-            --sidebar-bg: #0f172a;
-            --card-bg: #161e2e;
-            --light-blue: #60a5fa;
-            --accent-blue: #3b82f6;
-            --text-gray: #94a3b8;
-            --border: #1e293b;
-            --glass: rgba(255, 255, 255, 0.03);
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --blue: #3b82f6;
+            --cyan: #06b6d4;
+            --purple: #8b5cf6;
+            --rose: #f43f5e;
+            --amber: #f59e0b;
+            --text-main: #f1f5f9;
+            --text-dim: #94a3b8;
         }
 
         body {
             background-color: var(--bg-dark);
-            color: white;
-            font-family: 'Segoe UI', sans-serif;
+            color: var(--text-main);
+            font-family: 'Inter', 'Segoe UI', sans-serif;
             margin: 0;
             display: flex;
             min-height: 100vh;
         }
 
+        /* --- MENÚ LATERAL --- */
         nav {
-            width: 280px;
-            background: var(--sidebar-bg);
-            border-right: 1px solid var(--border);
+            width: 260px;
+            background: rgba(15, 23, 42, 0.95);
+            border-right: 1px solid rgba(255,255,255,0.1);
             padding: 2rem 1rem;
             position: sticky;
             top: 0;
             height: 100vh;
             box-sizing: border-box;
-            flex-shrink: 0;
         }
 
-        nav h2 { font-size: 1.1rem; color: var(--light-blue); margin-bottom: 2rem; text-transform: uppercase; padding-left: 10px; }
+        nav h2 { color: var(--cyan); font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2rem; }
         nav a {
             display: flex;
             align-items: center;
-            color: var(--text-gray);
+            color: var(--text-dim);
             text-decoration: none;
-            padding: 12px 15px;
-            border-radius: 8px;
-            margin-bottom: 5px;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 8px;
             transition: 0.3s;
         }
-        nav a i { margin-right: 12px; width: 20px; text-align: center; }
-        nav a:hover, nav a.active { background: rgba(96, 165, 250, 0.1); color: var(--light-blue); font-weight: bold; }
+        nav a:hover, nav a.active { background: rgba(59, 130, 246, 0.2); color: white; }
+        nav a i { margin-right: 12px; }
 
-        main { flex: 1; padding: 3rem; max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; }
+        main { flex: 1; padding: 4rem; max-width: 1100px; margin: 0 auto; }
 
-        .hero-section {
-            background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(10, 15, 29, 0) 100%);
-            padding: 3rem;
-            border-radius: 2rem;
-            border: 1px solid var(--border);
-            margin-bottom: 3rem;
-            text-align: center;
+        .header-box {
+            border-left: 5px solid var(--blue);
+            padding-left: 2rem;
+            margin-bottom: 4rem;
         }
+        .header-box h1 { font-size: 3rem; margin: 0; color: white; }
+        .header-box p { font-size: 1.2rem; color: var(--text-dim); max-width: 800px; }
 
-        .hero-section h1 { 
-            font-size: 3rem; 
-            margin: 0; 
-            background: linear-gradient(to right, #fff, var(--light-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .section-card {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 1.5rem;
-            border: 1px solid var(--border);
-            margin-bottom: 2.5rem;
-            transition: 0.3s ease;
-        }
-
-        .section-card:hover { transform: translateY(-5px); border-color: var(--accent-blue); }
-
-        h2 { color: var(--light-blue); font-size: 1.8rem; display: flex; align-items: center; gap: 15px; }
-        p { color: var(--text-gray); line-height: 1.8; font-size: 1.1rem; }
-
-        .pathology-grid {
+        /* --- GRID DE TRASTORNOS --- */
+        .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
         }
 
-        .pathology-card {
-            background: var(--glass);
-            padding: 1.5rem;
-            border-radius: 1rem;
+        .info-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
             border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .pathology-card h4 { margin: 0 0 10px 0; color: #fff; }
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: rgba(255,255,255,0.2);
+        }
 
-        .footer-nav {
+        .info-card h3 { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            font-size: 1.5rem; 
+            margin-top: 0;
+        }
+
+        .card-cuello { border-top: 4px solid var(--cyan); }
+        .card-cuello h3 { color: var(--cyan); }
+        
+        .card-hombros { border-top: 4px solid var(--purple); }
+        .card-hombros h3 { color: var(--purple); }
+
+        .card-espalda { border-top: 4px solid var(--blue); }
+        .card-espalda h3 { color: var(--blue); }
+
+        .card-manos { border-top: 4px solid var(--rose); }
+        .card-manos h3 { color: var(--rose); }
+
+        .card-piernas { border-top: 4px solid var(--amber); }
+        .card-piernas h3 { color: var(--amber); }
+
+        ul { padding-left: 1.2rem; color: var(--text-dim); line-height: 1.7; }
+        ul li { margin-bottom: 8px; }
+        strong { color: white; }
+
+        .bottom-nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-top: 4rem;
+            margin-top: 5rem;
             padding-top: 2rem;
-            border-top: 1px solid var(--border);
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        .nav-button {
+        .nav-btn {
+            text-decoration: none;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.05);
+            transition: 0.3s;
             display: flex;
             align-items: center;
-            gap: 12px;
-            color: white;
-            text-decoration: none;
-            background: var(--card-bg);
-            padding: 12px 20px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            transition: 0.3s;
-            font-weight: 600;
+            gap: 10px;
+            border: 1px solid transparent;
         }
 
-        .nav-button:hover {
-            background: var(--light-blue);
-            color: var(--bg-dark);
-            border-color: var(--light-blue);
-        }
+        .nav-btn:hover { background: var(--blue); border-color: white; }
 
-        .author-footer {
+        .author {
             text-align: center;
             margin-top: 3rem;
-            color: var(--text-gray);
-            font-size: 0.9rem;
+            color: var(--text-dim);
+            font-weight: 500;
             padding-bottom: 2rem;
         }
-
-        ul { list-style: none; padding: 0; color: var(--text-gray); line-height: 2; }
-        ul li::before { content: "• "; color: var(--light-blue); font-weight: bold; }
     </style>
 </head>
 <body>
@@ -154,53 +157,85 @@
     </nav>
 
     <main>
-        <div class="hero-section">
-            <h1><i class="fas fa-bone"></i> Trastornos Físicos</h1>
-            <p>Prevención de lesiones y ergonomía en el entorno digital.</p>
+        <section class="header-box">
+            <h1>Trastornos Físicos</h1>
+            <p>El trabajo prolongado con ordenadores puede generar diversos trastornos musculoesqueléticos. Estos afectan principalmente a la espalda, cuello, hombros, brazos, muñecas y piernas.</p>
+        </section>
+
+        <div class="info-grid">
+            <div class="info-card card-cuello">
+                <h3><i class="fas fa-head-side-virus"></i> Dolor de cuello</h3>
+                <p>Aparece cuando el trabajador mantiene el cuello girado, flexionado o extendido durante largos periodos.</p>
+                <strong>Causas frecuentes:</strong>
+                <ul>
+                    <li>Pantallas colocadas demasiado altas o bajas.</li>
+                    <li>Monitores situados a un lado, obligando a girar la cabeza.</li>
+                    <li>Posturas mantenidas sin descanso.</li>
+                </ul>
+            </div>
+
+            <div class="info-card card-hombros">
+                <h3><i class="fas fa-child"></i> Hombros y Espalda Alta</h3>
+                <p>Relacionadas con la tensión de la musculatura de la cintura escapular.</p>
+                <strong>Suelen aparecer cuando:</strong>
+                <ul>
+                    <li>No se apoyan los antebrazos al teclear o usar el ratón.</li>
+                    <li>La mesa está demasiado alta, obligando a elevar los hombros.</li>
+                    <li>Teclado o ratón mal colocados (requieren estiramientos).</li>
+                </ul>
+            </div>
+
+            <div class="info-card card-espalda">
+                <h3><i class="fas fa-backspace"></i> Zona Lumbar y Dorsal</h3>
+                <p>La postura sentada durante muchas horas provoca carga en las vértebras, ligamentos y musculatura.</p>
+                <strong>Factores que lo agravan:</strong>
+                <ul>
+                    <li>Sillas sin apoyo lumbar adecuado.</li>
+                    <li>Inclinaciones del tronco hacia adelante o hacia los lados.</li>
+                    <li>Respaldo mal ajustado o demasiado rígido.</li>
+                </ul>
+            </div>
+
+            <div class="info-card card-manos">
+                <h3><i class="fas fa-hand-paper"></i> Manos y Muñecas</h3>
+                <p>Debido al mantenimiento de la muñeca en posiciones forzadas (flexionada o desviada).</p>
+                <strong>Factores de riesgo:</strong>
+                <ul>
+                    <li>Teclados demasiado altos o inclinados.</li>
+                    <li>Tareas intensivas de introducción de datos.</li>
+                    <li>Uso repetitivo del ratón (Síndrome del Túnel Carpiano).</li>
+                </ul>
+            </div>
+
+            <div class="info-card card-piernas">
+                <h3><i class="fas fa-walking"></i> Piernas y Circulación</h3>
+                <p>Provoca entumecimiento y presión en la parte posterior de las rodillas.</p>
+                <strong>Ocurre especialmente cuando:</strong>
+                <ul>
+                    <li>La silla es demasiado grande o demasiado alta.</li>
+                    <li>Los pies no apoyan correctamente en el suelo.</li>
+                    <li>Mala circulación por inmovilidad prolongada.</li>
+                </ul>
+            </div>
+
+            <div class="info-card" style="border-top: 4px solid #fff;">
+                <h3><i class="fas fa-battery-quarter"></i> Fatiga Muscular General</h3>
+                <p>Tensión acumulada en todo el cuerpo por postura estática prolongada.</p>
+                <strong>En resumen:</strong>
+                <p>Se deben principalmente a posturas inadecuadas, malas posiciones del equipo y movimientos repetitivos.</p>
+            </div>
         </div>
 
-        <section class="section-card">
-            <h2><i class="fas fa-info-circle"></i> Impacto en la Salud</h2>
-            <p>El sedentarismo y las posturas incorrectas son los principales enemigos del informático. Mantener una postura estática durante horas sobrecarga los tejidos blandos y las articulaciones.</p>
-        </section>
-
-        <section class="section-card">
-            <h2><i class="fas fa-user-md"></i> Patologías Comunes</h2>
-            <div class="pathology-grid">
-                <div class="pathology-card">
-                    <h4>Cervicalgia</h4>
-                    <p>Dolor de cuello por mala posición del monitor.</p>
-                </div>
-                <div class="pathology-card">
-                    <h4>Túnel Carpiano</h4>
-                    <p>Entumecimiento por uso excesivo de ratón.</p>
-                </div>
-                <div class="pathology-card">
-                    <h4>Lumbalgia</h4>
-                    <p>Dolor lumbar por falta de apoyo en la espalda.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-card">
-            <h2><i class="fas fa-check-double"></i> Medidas Ergonómicas</h2>
-            <ul>
-                <li><strong>Monitor:</strong> A la altura de los ojos y a un brazo de distancia.</li>
-                <li><strong>Teclado y Ratón:</strong> Codos a 90 grados y antebrazos apoyados.</li>
-                <li><strong>Silla:</strong> Regulable con soporte lumbar firme.</li>
-            </ul>
-        </section>
-
-        <div class="footer-nav">
-            <a href="index.html" class="nav-button">
+        <div class="bottom-nav">
+            <a href="index.html" class="nav-btn">
                 <i class="fas fa-arrow-left"></i> Volver a Inicio
             </a>
-            <a href="fatiga-visual.html" class="nav-button">
+            <a href="fatiga-visual.html" class="nav-btn">
                 Fatiga Visual <i class="fas fa-arrow-right"></i>
             </a>
         </div>
 
-        <div class="author-footer">
+        <div class="author">
             Autor: Sergio Quemada López
         </div>
     </main>
