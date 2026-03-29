@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prevención de Riesgos Laborales - Inicio</title>
+    <title>Prevención de Riesgos Laborales</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -24,7 +24,6 @@
             min-height: 100vh;
         }
 
-        /* BARRA LATERAL */
         nav {
             width: 280px;
             background: var(--sidebar-bg);
@@ -35,9 +34,10 @@
             height: 100vh;
             box-sizing: border-box;
             flex-shrink: 0;
+            overflow-y: auto;
         }
 
-        nav h2 { font-size: 1.1rem; color: var(--light-blue); margin-bottom: 2rem; text-transform: uppercase; padding-left: 10px; letter-spacing: 1px; }
+        nav h2 { font-size: 1.1rem; color: var(--light-blue); margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 1px; padding-left: 10px; }
 
         nav a {
             display: flex;
@@ -48,12 +48,12 @@
             border-radius: 8px;
             margin-bottom: 5px;
             transition: 0.3s;
+            font-size: 0.95rem;
         }
 
         nav a i { margin-right: 12px; width: 20px; text-align: center; }
         nav a:hover, nav a.active { background: rgba(96, 165, 250, 0.1); color: var(--light-blue); font-weight: bold; }
 
-        /* CONTENIDO */
         main { flex: 1; padding: 3rem; max-width: 1200px; }
         header { text-align: center; margin-bottom: 4rem; }
         .main-title { font-size: 3.5rem; margin: 0; background: linear-gradient(to right, #fff, var(--light-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; }
@@ -100,9 +100,11 @@
             padding: 2.5rem;
             border-radius: 1.2rem;
             border: 1px solid var(--border);
+            margin-top: 2rem;
+            scroll-margin-top: 2rem;
         }
 
-        #referencias h3 { color: var(--light-blue); margin-top: 0; display: flex; align-items: center; gap: 10px; }
+        #referencias h3 { color: var(--light-blue); margin-top: 0; display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
         #referencias ul { color: var(--text-gray); line-height: 2; padding-left: 1.2rem; margin-bottom: 0; }
     </style>
 </head>
@@ -112,10 +114,10 @@
         <h2>Prevención IT</h2>
         <a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a>
         <a href="Trastornosfísicos.html"><i class="fas fa-bone"></i> Trastornos Físicos</a>
-        <a href="#"><i class="fas fa-eye"></i> Fatiga Visual</a>
-        <a href="#"><i class="fas fa-brain"></i> Carga Mental</a>
+        <a href="fatiga-visual.html"><i class="fas fa-eye"></i> Fatiga Visual</a>
+        <a href="carga-mental.html"><i class="fas fa-brain"></i> Carga Mental</a>
         <a href="#"><i class="fas fa-chair"></i> Diseño Puesto</a>
-        <a href="#"><i class="fas fa-walking"></i> Ejercicios y Pausas</a>
+        <a href="pausas.html"><i class="fas fa-walking"></i> Ejercicios y Pausas</a>
         <a href="#"><i class="fas fa-leaf"></i> Higiene Ambiental</a>
         <a href="#referencias"><i class="fas fa-book"></i> Referencias</a>
     </nav>
@@ -134,39 +136,39 @@
                 <p>Prevención de lesiones músculo-esqueléticas y ergonomía aplicada.</p>
             </a>
 
-            <div class="card">
+            <a href="fatiga-visual.html" class="card">
                 <span class="badge">Riesgo</span>
                 <i class="fas fa-eye" style="font-size: 3rem; color: var(--light-blue);"></i>
                 <h3>Fatiga Visual</h3>
                 <p>Uso prolongado de pantallas y salud ocular.</p>
-            </div>
+            </a>
 
-            <div class="card">
+            <a href="carga-mental.html" class="card">
                 <span class="badge">Riesgo</span>
                 <i class="fas fa-brain" style="font-size: 3rem; color: var(--light-blue);"></i>
                 <h3>Carga Mental</h3>
                 <p>Gestión del estrés y fatiga psicológica.</p>
-            </div>
+            </a>
 
             <div class="card">
                 <span class="badge">Medida</span>
                 <i class="fas fa-chair" style="font-size: 3rem; color: var(--light-blue);"></i>
                 <h3>Diseño del Puesto</h3>
-                <p>Mobiliario y organización del espacio físico.</p>
+                <p>Mobiliario ergonómico y organización del espacio.</p>
             </div>
 
-            <div class="card">
+            <a href="pausas.html" class="card">
                 <span class="badge">Medida</span>
                 <i class="fas fa-walking" style="font-size: 3rem; color: var(--light-blue);"></i>
                 <h3>Ejercicios y Pausas</h3>
                 <p>Rutinas activas contra el sedentarismo laboral.</p>
-            </div>
+            </a>
 
             <div class="card">
                 <span class="badge">Medida</span>
                 <i class="fas fa-leaf" style="font-size: 3rem; color: var(--light-blue);"></i>
                 <h3>Higiene Ambiental</h3>
-                <p>Luz, temperatura y calidad del aire en la oficina.</p>
+                <p>Luz, temperatura y calidad del aire.</p>
             </div>
         </div>
 
@@ -179,5 +181,6 @@
             </ul>
         </section>
     </main>
+
 </body>
 </html>
