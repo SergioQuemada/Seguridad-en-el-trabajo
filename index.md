@@ -47,7 +47,12 @@
         <h3>Higiene Ambiental</h3>
         <p style="color: #94a3b8;">Luz, temperatura y calidad del aire.</p>
     </div>
-</div>
+    
+<a href="trastornosfísicos.html" class="eco-card eco-red" style="text-decoration: none; display: block;">
+    <div class="eco-title">1. Trastornos Físicos</div>
+    <p>Haz clic aquí para ver los problemas de cuello, espalda y muñecas.</p>
+</a>
+    </div>
 
 <section id="referencias">
     <h3 style="color: var(--light-blue);"><i class="fas fa-book"></i> Referencias Bibliográficas</h3>
