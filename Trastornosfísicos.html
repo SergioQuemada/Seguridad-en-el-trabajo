@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trastornos Físicos - Detalle Completo</title>
+    <title>Trastornos Físicos - Prevención IT</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -23,66 +23,55 @@
             color: var(--text-main);
             font-family: 'Inter', 'Segoe UI', sans-serif;
             margin: 0;
-            display: flex;
+            display: block; /* Sin flexbox para el body */
             min-height: 100vh;
         }
 
-        /* --- MENÚ LATERAL --- */
-        nav {
-            width: 260px;
-            background: rgba(15, 23, 42, 0.95);
-            border-right: 1px solid rgba(255,255,255,0.1);
-            padding: 2rem 1rem;
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            box-sizing: border-box;
+        main { 
+            padding: 4rem 2rem; 
+            max-width: 1200px; 
+            margin: 0 auto; 
         }
-
-        nav h2 { color: var(--cyan); font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2rem; }
-        nav a {
-            display: flex;
-            align-items: center;
-            color: var(--text-dim);
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 10px;
-            margin-bottom: 8px;
-            transition: 0.3s;
-        }
-        nav a:hover, nav a.active { background: rgba(59, 130, 246, 0.2); color: white; }
-        nav a i { margin-right: 12px; }
-
-        main { flex: 1; padding: 4rem; max-width: 1100px; margin: 0 auto; }
 
         .header-box {
-            border-left: 5px solid var(--blue);
-            padding-left: 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 3rem;
             margin-bottom: 4rem;
         }
-        .header-box h1 { font-size: 3rem; margin: 0; color: white; }
-        .header-box p { font-size: 1.2rem; color: var(--text-dim); max-width: 800px; }
+        .header-box h1 { 
+            font-size: 3.5rem; 
+            margin: 0 0 1rem 0; 
+            background: linear-gradient(to right, #fff, var(--blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header-box p { 
+            font-size: 1.25rem; 
+            color: var(--text-dim); 
+            max-width: 900px; 
+            margin: 0 auto;
+            line-height: 1.6;
+        }
 
-        /* --- GRID DE TRASTORNOS --- */
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
         }
 
         .info-card {
             background: var(--card-bg);
-            border-radius: 20px;
-            padding: 2rem;
+            border-radius: 24px;
+            padding: 2.5rem;
             border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
-            overflow: hidden;
         }
 
         .info-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
             border-color: rgba(255,255,255,0.2);
         }
 
@@ -90,33 +79,38 @@
             display: flex; 
             align-items: center; 
             gap: 15px; 
-            font-size: 1.5rem; 
+            font-size: 1.6rem; 
             margin-top: 0;
+            margin-bottom: 1rem;
         }
 
-        .card-cuello { border-top: 4px solid var(--cyan); }
+        .card-cuello { border-left: 6px solid var(--cyan); }
         .card-cuello h3 { color: var(--cyan); }
         
-        .card-hombros { border-top: 4px solid var(--purple); }
+        .card-hombros { border-left: 6px solid var(--purple); }
         .card-hombros h3 { color: var(--purple); }
 
-        .card-espalda { border-top: 4px solid var(--blue); }
+        .card-espalda { border-left: 6px solid var(--blue); }
         .card-espalda h3 { color: var(--blue); }
 
-        .card-manos { border-top: 4px solid var(--rose); }
+        .card-manos { border-left: 6px solid var(--rose); }
         .card-manos h3 { color: var(--rose); }
 
-        .card-piernas { border-top: 4px solid var(--amber); }
+        .card-piernas { border-left: 6px solid var(--amber); }
         .card-piernas h3 { color: var(--amber); }
 
-        ul { padding-left: 1.2rem; color: var(--text-dim); line-height: 1.7; }
-        ul li { margin-bottom: 8px; }
-        strong { color: white; }
+        .card-fatiga { border-left: 6px solid #fff; }
+
+        p { color: var(--text-dim); line-height: 1.8; font-size: 1.1rem; }
+        ul { padding-left: 1.2rem; color: var(--text-dim); line-height: 1.8; }
+        ul li { margin-bottom: 10px; list-style-type: none; position: relative; }
+        ul li::before { content: "•"; color: inherit; position: absolute; left: -1.2rem; font-weight: bold; }
+        strong { color: white; display: block; margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.1rem; }
 
         .bottom-nav {
             display: flex;
             justify-content: space-between;
-            margin-top: 5rem;
+            margin-top: 6rem;
             padding-top: 2rem;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
@@ -124,45 +118,44 @@
         .nav-btn {
             text-decoration: none;
             color: white;
-            padding: 15px 25px;
-            border-radius: 12px;
+            padding: 16px 30px;
+            border-radius: 16px;
             background: rgba(255,255,255,0.05);
             transition: 0.3s;
             display: flex;
             align-items: center;
-            gap: 10px;
-            border: 1px solid transparent;
+            gap: 12px;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .nav-btn:hover { background: var(--blue); border-color: white; }
+        .nav-btn:hover { 
+            background: var(--blue); 
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
 
         .author {
             text-align: center;
-            margin-top: 3rem;
+            margin-top: 4rem;
             color: var(--text-dim);
             font-weight: 500;
-            padding-bottom: 2rem;
+            letter-spacing: 1px;
+            padding-bottom: 3rem;
+            font-size: 1rem;
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <h2>Prevención IT</h2>
-        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
-        <a href="Trastornosfísicos.html" class="active"><i class="fas fa-bone"></i> Trastornos Físicos</a>
-        <a href="fatiga-visual.html"><i class="fas fa-eye"></i> Fatiga Visual</a>
-        <a href="carga-mental.html"><i class="fas fa-brain"></i> Carga Mental</a>
-        <a href="pausas.html"><i class="fas fa-walking"></i> Ejercicios y Pausas</a>
-    </nav>
-
     <main>
         <section class="header-box">
             <h1>Trastornos Físicos</h1>
-            <p>El trabajo prolongado con ordenadores puede generar diversos trastornos musculoesqueléticos. Estos afectan principalmente a la espalda, cuello, hombros, brazos, muñecas y piernas.</p>
+            <p>Derivados del trabajo en el sector informático. El uso prolongado de ordenadores puede generar trastornos musculoesqueléticos que afectan principalmente a la espalda, cuello, hombros, brazos, muñecas y piernas.</p>
         </section>
 
         <div class="info-grid">
+            
             <div class="info-card card-cuello">
                 <h3><i class="fas fa-head-side-virus"></i> Dolor de cuello</h3>
                 <p>Aparece cuando el trabajador mantiene el cuello girado, flexionado o extendido durante largos periodos.</p>
@@ -175,55 +168,57 @@
             </div>
 
             <div class="info-card card-hombros">
-                <h3><i class="fas fa-child"></i> Hombros y Espalda Alta</h3>
-                <p>Relacionadas con la tensión de la musculatura de la cintura escapular.</p>
+                <h3><i class="fas fa-user-alt"></i> Hombros y Espalda Alta</h3>
+                <p>Relacionadas con la tensión de la musculatura de la cintura escapular (hombros elevados o en tensión).</p>
                 <strong>Suelen aparecer cuando:</strong>
                 <ul>
                     <li>No se apoyan los antebrazos al teclear o usar el ratón.</li>
                     <li>La mesa está demasiado alta, obligando a elevar los hombros.</li>
-                    <li>Teclado o ratón mal colocados (requieren estiramientos).</li>
+                    <li>El teclado o ratón requieren estiramientos constantes.</li>
                 </ul>
             </div>
 
             <div class="info-card card-espalda">
-                <h3><i class="fas fa-backspace"></i> Zona Lumbar y Dorsal</h3>
+                <h3><i class="fas fa-accessibility"></i> Zona Lumbar y Dorsal</h3>
                 <p>La postura sentada durante muchas horas provoca carga en las vértebras, ligamentos y musculatura.</p>
                 <strong>Factores que lo agravan:</strong>
                 <ul>
                     <li>Sillas sin apoyo lumbar adecuado.</li>
+                    <li>Permanecer mucho tiempo sentado sin cambiar de postura.</li>
                     <li>Inclinaciones del tronco hacia adelante o hacia los lados.</li>
                     <li>Respaldo mal ajustado o demasiado rígido.</li>
                 </ul>
             </div>
 
             <div class="info-card card-manos">
-                <h3><i class="fas fa-hand-paper"></i> Manos y Muñecas</h3>
-                <p>Debido al mantenimiento de la muñeca en posiciones forzadas (flexionada o desviada).</p>
-                <strong>Factores de riesgo:</strong>
+                <h3><i class="fas fa-hand-sparkles"></i> Manos y Muñecas</h3>
+                <p>Debido al mantenimiento de la muñeca en posiciones forzadas: extendida, flexionada o desviada.</p>
+                <strong>Factores contribuyentes:</strong>
                 <ul>
                     <li>Teclados demasiado altos o inclinados.</li>
-                    <li>Tareas intensivas de introducción de datos.</li>
+                    <li>Mesas muy altas y tareas intensivas de datos.</li>
                     <li>Uso repetitivo del ratón (Síndrome del Túnel Carpiano).</li>
                 </ul>
             </div>
 
             <div class="info-card card-piernas">
-                <h3><i class="fas fa-walking"></i> Piernas y Circulación</h3>
-                <p>Provoca entumecimiento y presión en la parte posterior de las rodillas.</p>
+                <h3><i class="fas fa-shoe-prints"></i> Piernas y Circulación</h3>
+                <p>Permanecer sentado mucho tiempo puede provocar entumecimiento y mala circulación.</p>
                 <strong>Ocurre especialmente cuando:</strong>
                 <ul>
                     <li>La silla es demasiado grande o demasiado alta.</li>
                     <li>Los pies no apoyan correctamente en el suelo.</li>
-                    <li>Mala circulación por inmovilidad prolongada.</li>
+                    <li>Presión en la parte posterior de las rodillas.</li>
                 </ul>
             </div>
 
-            <div class="info-card" style="border-top: 4px solid #fff;">
+            <div class="info-card card-fatiga">
                 <h3><i class="fas fa-battery-quarter"></i> Fatiga Muscular General</h3>
-                <p>Tensión acumulada en todo el cuerpo por postura estática prolongada.</p>
+                <p>Mantener una misma postura genera tensión acumulada en espalda, cuello, hombros, brazos y piernas.</p>
                 <strong>En resumen:</strong>
-                <p>Se deben principalmente a posturas inadecuadas, malas posiciones del equipo y movimientos repetitivos.</p>
+                <p>Se deben a posturas inadecuadas, malas posiciones del equipo, movimientos repetitivos y permanencia prolongada en la misma postura.</p>
             </div>
+
         </div>
 
         <div class="bottom-nav">
