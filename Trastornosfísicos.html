@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trastornos Físicos - Sector Informático</title>
+    <title>Trastornos Físicos - IT</title>
     <style>
         /* --- ESTILO GENERAL --- */
         body {
@@ -24,17 +24,17 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
-        /* --- TÍTULO PRINCIPAL (Estilo Degradado) --- */
+        /* --- TÍTULO PRINCIPAL (RECTÁNGULO DE COLORES) --- */
         .header-banner {
             text-align: center;
             padding: 30px;
             border-radius: 12px;
-            background: linear-gradient(90deg, #d9534f, #f0ad4e); /* Tonos cálidos para salud */
+            background: linear-gradient(90deg, #d9534f, #007bff);
             color: white;
             margin-bottom: 30px;
         }
 
-        /* --- TARJETAS ECO-STYLE --- */
+        /* --- TARJETAS TIPO ECO --- */
         .eco-card {
             background: #ffffff;
             border-radius: 14px;
@@ -50,48 +50,27 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.12);
         }
 
-        /* Colores de borde para categorías */
-        .eco-red { border-left: 8px solid #d9534f; }    /* Cuello/Espalda */
-        .eco-blue { border-left: 8px solid #007bff; }   /* Extremidades */
-        .eco-yellow { border-left: 8px solid #f0ad4e; } /* General */
-        .eco-green { border-left: 8px solid #28a745; }  /* Conclusión */
+        .eco-red { border-left: 8px solid #d9534f; }
+        .eco-blue { border-left: 8px solid #007bff; }
+        .eco-green { border-left: 8px solid #28a745; }
 
-        .eco-title {
-            font-size: 1.4em;
-            font-weight: bold;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-        }
+        .eco-title { font-size: 1.4em; font-weight: bold; margin-bottom: 12px; }
 
-        /* --- ESTILO DE TABLAS --- */
+        /* --- TABLAS --- */
         .tabla-eco {
             width: 100%;
             border-collapse: collapse;
             margin: 25px 0;
-            font-size: 1em;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
-        .tabla-eco thead tr {
-            background: #d9534f;
-            color: white;
-            text-align: left;
-        }
+        .tabla-eco thead tr { background: #d9534f; color: white; text-align: left; }
+        .tabla-eco th, .tabla-eco td { padding: 14px; border-bottom: 1px solid #eee; }
 
-        .tabla-eco th, .tabla-eco td {
-            padding: 14px 18px;
-            border-bottom: 1px solid #e9ecef;
-        }
-
-        .tabla-eco tbody tr:nth-child(even) {
-            background: #f8f9fa;
-        }
-
-        /* --- NAVEGACIÓN INFERIOR --- */
-        .nav-container {
+        /* --- NAVEGACIÓN INFERIOR (BOTONES) --- */
+        .nav-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -102,17 +81,19 @@
 
         .btn-nav {
             text-decoration: none;
-            color: #d9534f;
+            padding: 12px 20px;
+            background: #f8f9fa;
+            color: #222;
+            border-radius: 8px;
+            border: 1px solid #ccc;
             font-weight: bold;
-            font-size: 1.1em;
             transition: 0.3s;
         }
 
         .btn-nav:hover {
-            color: #b52b27;
-            text-decoration: underline;
+            background: #eee;
+            border-color: #999;
         }
-
     </style>
 </head>
 <body>
@@ -120,87 +101,58 @@
 <div class="container">
 
     <header class="header-banner">
-        <h1 style="margin: 0; font-size: 2.3em;">Trastornos Físicos en IT</h1>
-        <p style="margin: 5px 0 0 0; opacity: 0.9;">Riesgos derivados del trabajo prolongado con ordenadores</p>
+        <h1 style="margin: 0; font-size: 2.3em;">Trastornos Físicos</h1>
+        <p style="margin-top: 5px;">Riesgos en el sector informático</p>
     </header>
 
-    <p>El trabajo prolongado con ordenadores puede generar diversos trastornos musculoesqueléticos por posturas incorrectas, equipos mal ajustados o movimientos repetitivos.</p>
-
     <div class="eco-card eco-red">
-        <div class="eco-title">🔹 Dolor de Cuello</div>
-        <p>Aparece cuando el trabajador mantiene el cuello girado, flexionado o extendido durante largos periodos.</p>
-        <ul style="margin-top: 10px;">
-            <li>Pantallas colocadas demasiado altas o bajas.</li>
-            <li>Monitores situados a un lado, obligando a girar la cabeza.</li>
-            <li>Posturas mantenidas sin descanso.</li>
-        </ul>
+        <div class="eco-title">🔹 Cuello y Espalda Alta</div>
+        <p>El dolor cervical aparece por monitores mal situados o posturas mantenidas sin descanso.</p>
     </div>
 
-    <div class="eco-card eco-red">
-        <div class="eco-title">🔹 Molestias en Hombros y Espalda</div>
-        <p>La postura sentada durante muchas horas provoca carga en las vértebras, ligamentos y musculatura.</p>
-        <ul>
-            <li>Falta de apoyo lumbar adecuado.</li>
-            <li>Mesa demasiado alta (eleva los hombros).</li>
-            <li>Inclinaciones del tronco hacia adelante.</li>
-        </ul>
+    <div class="eco-card eco-blue">
+        <div class="eco-title">🔹 Manos y Muñecas</div>
+        <p>El uso repetitivo del ratón y teclados altos pueden causar el síndrome del túnel carpiano.</p>
     </div>
 
     <table class="tabla-eco">
         <thead>
             <tr>
-                <th>Zona Afectada</th>
-                <th>Causa Frecuente</th>
-                <th>Riesgo</th>
+                <th>Trastorno</th>
+                <th>Causa Principal</th>
+                <th>Efecto</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Muñecas</td>
-                <td>Uso repetitivo del ratón</td>
-                <td>Túnel Carpiano</td>
+                <td>Lumbalgia</td>
+                <td>Silla sin apoyo</td>
+                <td>Dolor de espalda baja</td>
             </tr>
             <tr>
-                <td>Piernas</td>
-                <td>Silla alta o mala posición</td>
+                <td>Entumecimiento</td>
+                <td>Pies sin apoyo</td>
                 <td>Mala circulación</td>
-            </tr>
-            <tr>
-                <td>General</td>
-                <td>Postura estática</td>
-                <td>Fatiga muscular</td>
             </tr>
         </tbody>
     </table>
 
-    <div class="eco-card eco-blue">
-        <div class="eco-title">🔹 Molestias en Manos y Muñecas</div>
-        <p>Se deben al mantenimiento de la muñeca en posiciones forzadas o movimientos repetitivos intensos.</p>
-        <ul>
-            <li>Teclados demasiado altos o inclinados.</li>
-            <li>Uso excesivo del ratón sin alfombrilla ergonómica.</li>
-            <li>Tareas intensivas de introducción de datos.</li>
-        </ul>
-    </div>
-
-    <div class="eco-card eco-yellow">
-        <div class="eco-title">🔹 Entumecimiento en Piernas</div>
-        <p>Permanecer sentado mucho tiempo provoca presión en la parte posterior de las rodillas y mala circulación.</p>
-    </div>
-
     <div class="eco-card eco-green">
-        <div class="eco-title">En Resumen...</div>
-        <p>Los trastornos físicos en el sector informático se deben principalmente a <strong>posturas inadecuadas</strong> y <strong>permanencia prolongada</strong>. La prevención mediante pausas y ergonomía es fundamental.</p>
+        <div class="eco-title">Conclusión</div>
+        <p>Es fundamental ajustar el equipo y realizar pausas para evitar fatiga muscular general.</p>
     </div>
 
-    <div class="nav-container">
-        <a href="index.html" class="btn-nav">
-            🏠 Volver a Menú Principal
+    <footer class="nav-footer">
+        
+        <a href="trastornosfísicos.html" class="btn-nav">
+            🏠 Volver a Menú
         </a>
+
         <a href="fatiga-visual.html" class="btn-nav">
             Fatiga Visual ➜
         </a>
-    </div>
+
+    </footer>
 
 </div>
 
