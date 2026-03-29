@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trastornos Físicos - IT</title>
     <style>
-        /* --- ESTILO GENERAL --- */
         body {
             font-family: "Segoe UI", Arial, sans-serif;
             line-height: 1.7;
@@ -24,7 +23,6 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
-        /* --- TÍTULO PRINCIPAL (RECTÁNGULO DE COLORES) --- */
         .header-banner {
             text-align: center;
             padding: 30px;
@@ -34,7 +32,6 @@
             margin-bottom: 30px;
         }
 
-        /* --- TARJETAS TIPO ECO --- */
         .eco-card {
             background: #ffffff;
             border-radius: 14px;
@@ -56,7 +53,6 @@
 
         .eco-title { font-size: 1.4em; font-weight: bold; margin-bottom: 12px; }
 
-        /* --- TABLAS --- */
         .tabla-eco {
             width: 100%;
             border-collapse: collapse;
@@ -69,7 +65,6 @@
         .tabla-eco thead tr { background: #d9534f; color: white; text-align: left; }
         .tabla-eco th, .tabla-eco td { padding: 14px; border-bottom: 1px solid #eee; }
 
-        /* --- NAVEGACIÓN INFERIOR (BOTONES) --- */
         .nav-footer {
             display: flex;
             justify-content: space-between;
@@ -81,18 +76,20 @@
 
         .btn-nav {
             text-decoration: none;
-            padding: 12px 20px;
+            padding: 12px 25px;
             background: #f8f9fa;
             color: #222;
             border-radius: 8px;
             border: 1px solid #ccc;
             font-weight: bold;
-            transition: 0.3s;
+            transition: 0.3s ease;
+            display: inline-block;
         }
 
         .btn-nav:hover {
-            background: #eee;
-            border-color: #999;
+            background: #d9534f;
+            color: white;
+            border-color: #d9534f;
         }
     </style>
 </head>
@@ -102,32 +99,32 @@
 
     <header class="header-banner">
         <h1 style="margin: 0; font-size: 2.3em;">Trastornos Físicos</h1>
-        <p style="margin-top: 5px;">Riesgos en el sector informático</p>
+        <p style="margin-top: 5px;">Salud y Ergonomía en Informática</p>
     </header>
 
     <div class="eco-card eco-red">
-        <div class="eco-title">🔹 Cuello y Espalda Alta</div>
-        <p>El dolor cervical aparece por monitores mal situados o posturas mantenidas sin descanso.</p>
+        <div class="eco-title">🔹 Dolor de Cuello</div>
+        <p>Aparece por pantallas mal situadas o posturas mantenidas sin descanso.</p>
     </div>
 
     <div class="eco-card eco-blue">
         <div class="eco-title">🔹 Manos y Muñecas</div>
-        <p>El uso repetitivo del ratón y teclados altos pueden causar el síndrome del túnel carpiano.</p>
+        <p>Causado por movimientos repetitivos y falta de apoyo en el teclado.</p>
     </div>
 
     <table class="tabla-eco">
         <thead>
             <tr>
                 <th>Trastorno</th>
-                <th>Causa Principal</th>
+                <th>Causa</th>
                 <th>Efecto</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>Lumbalgia</td>
-                <td>Silla sin apoyo</td>
-                <td>Dolor de espalda baja</td>
+                <td>Silla inadecuada</td>
+                <td>Dolor de espalda</td>
             </tr>
             <tr>
                 <td>Entumecimiento</td>
@@ -139,13 +136,13 @@
 
     <div class="eco-card eco-green">
         <div class="eco-title">Conclusión</div>
-        <p>Es fundamental ajustar el equipo y realizar pausas para evitar fatiga muscular general.</p>
+        <p>Es fundamental realizar pausas y ajustar el equipo ergonómicamente.</p>
     </div>
 
     <footer class="nav-footer">
         
-        <a href="trastornosfísicos.html" class="btn-nav">
-            🏠 Volver a Menú
+        <a href="index.html" class="btn-nav">
+            🏠 Volver a inicio
         </a>
 
         <a href="fatiga-visual.html" class="btn-nav">
