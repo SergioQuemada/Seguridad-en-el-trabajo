@@ -76,7 +76,7 @@
             transition: 0.3s ease;
             text-decoration: none;
             color: inherit;
-            display: block; /* Asegura que toda la tarjeta sea clickable */
+            display: block;
             height: 100%;
             box-sizing: border-box;
             cursor: pointer;
@@ -98,18 +98,6 @@
         .card h3 { margin: 1rem 0 0.5rem 0; font-size: 1.6rem; color: white; }
         .card p { color: var(--text-gray); line-height: 1.6; margin: 0; }
 
-        /* Referencias */
-        #referencias {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 1.2rem;
-            border: 1px solid var(--border);
-            margin-top: 2rem;
-            scroll-margin-top: 2rem;
-        }
-
-        #referencias h3 { color: var(--light-blue); margin-top: 0; display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
-        #referencias ul { color: var(--text-gray); line-height: 2; padding-left: 1.2rem; margin-bottom: 0; }
     </style>
 </head>
 <body>
@@ -123,7 +111,9 @@
         <a href="#"><i class="fas fa-chair"></i> Diseño Puesto</a>
         <a href="pausas.html"><i class="fas fa-walking"></i> Ejercicios y Pausas</a>
         <a href="#"><i class="fas fa-leaf"></i> Higiene Ambiental</a>
-        <a href="#referencias"><i class="fas fa-book"></i> Referencias</a>
+
+        <!-- ENLACE A REFERENCIAS -->
+        <a href="referencias.html"><i class="fas fa-book"></i> Referencias</a>
     </nav>
 
     <main>
@@ -176,22 +166,6 @@
             </div>
         </div>
 
-        <section id="referencias">
-            <h3><i class="fas fa-book"></i> Referencias Bibliográficas</h3>
-            <ul>
-    <li><a href="https://www.unir.net/revista/ingenieria/riesgos-laborales-informatica/" target="_blank">
-        UNIR – Riesgos laborales en informática
-    </a></li>
-
-    <li><a href="https://www.unirioja.es/servicios/sprl/pdf/guia_oficinas.pdf" target="_blank">
-        Universidad de La Rioja – Guía de oficinas (PDF)
-    </a></li>
-
-    <li><a href="https://prvprevencion.com/prevencion-riesgos-laborales-informatica/#Riesgos_fisicos" target="_blank">
-        PRV Prevención – Riesgos laborales en informática
-    </a></li>
-</ul>
-        </section>
     </main>
 
 </body>
