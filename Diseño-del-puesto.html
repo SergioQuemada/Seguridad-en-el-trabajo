@@ -1,1 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño del Puesto - Prevención IT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+    <style>
+        :root {
+            --bg-dark: #0a0f1d;
+            --sidebar-bg: #0f172a;
+            --card-bg: #1e293b;
+            --blue: #3b82f6;
+            --cyan: #06b6d4;
+            --purple: #8b5cf6;
+            --rose: #f43f5e;
+            --amber: #f59e0b;
+            --text-main: #f1f5f9;
+            --text-dim: #94a3b8;
+            --border: #1e293b;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* MENÚ LATERAL */
+        nav {
+            width: 260px;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--border);
+            padding: 1.5rem 0.8rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
+        nav h2 {
+            font-size: 1.1rem;
+            color: white;
+            margin-bottom: 2rem;
+            padding-left: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .menu-category {
+            font-size: 0.7rem;
+            color: #475569;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin: 1.5rem 0 0.5rem 10px;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            display: flex;
+            align-items: center;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 4px;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+
+        nav a i { margin-right: 12px; width: 18px; text-align: center; }
+        nav a.active { background: var(--blue); color: white; font-weight: 500; }
+        nav a:hover:not(.active) { background: rgba(255,255,255,0.05); color: white; }
+
+        /* CONTENIDO PRINCIPAL */
+        main {
+            flex: 1;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-box {
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .header-box h1 {
+            font-size: 3.5rem;
+            margin: 0 0 1rem 0;
+            background: linear-gradient(to right, #fff, var(--blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .info-card h3 {
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: var(--blue);
+        }
+
+        p, ul { color: var(--text-dim); line-height: 1.7; }
+        ul { padding-left: 1.2rem; }
+        ul li { margin-bottom: 8px; }
+
+        /* NAVEGACIÓN INFERIOR */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            color: white;
+            padding: 14px 26px;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.05);
+            transition: 0.3s;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-btn:hover {
+            background: var(--blue);
+            transform: scale(1.05);
+        }
+
+        .author {
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--text-dim);
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MENÚ LATERAL COMPLETO -->
+    <nav>
+        <h2>Medidas IT</h2>
+
+        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+
+        <div class="menu-category">Riesgos</div>
+        <a href="trastornos-fisicos.html"><i class="fas fa-bone"></i> Trastornos Físicos</a>
+        <a href="fatiga-visual.html"><i class="fas fa-eye"></i> Fatiga Visual</a>
+        <a href="carga-mental.html"><i class="fas fa-brain"></i> Carga Mental</a>
+
+        <div class="menu-category">Medidas</div>
+        <a href="Diseño-del-puesto.html" class="active"><i class="fas fa-chair"></i> Diseño del Puesto</a>
+        <a href="pausas.html"><i class="fas fa-walking"></i> Ejercicios y Pausas</a>
+
+        <div class="menu-category">Otros</div>
+        <a href="Referencias.html"><i class="fas fa-book"></i> Referencias</a>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <main>
+
+        <section class="header-box">
+            <h1>Diseño del Puesto</h1>
+            <p>Principales recomendaciones ergonómicas para un entorno informático saludable.</p>
+        </section>
+
+        <div class="info-grid">
+
+            <div class="info-card">
+                <h3><i class="fas fa-chair"></i> Silla ergonómica</h3>
+                <ul>
+                    <li>Altura regulable (codos entre 70º y 115º).</li>
+                    <li>Respaldo con apoyo lumbar.</li>
+                    <li>Base de cinco apoyos con ruedas.</li>
+                    <li>Apoyabrazos regulables.</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fas fa-desktop"></i> Pantalla</h3>
+                <ul>
+                    <li>Frente al usuario, sin giros de cuello.</li>
+                    <li>Distancia 60–80 cm.</li>
+                    <li>Parte superior a la altura de los ojos.</li>
+                    <li>Evitar reflejos y ajustar brillo/contraste.</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fas fa-keyboard"></i> Teclado</h3>
+                <ul>
+                    <li>Manos a la altura del codo.</li>
+                    <li>10 cm de espacio para apoyar muñecas.</li>
+                    <li>Muñecas rectas y relajadas.</li>
+                    <li>Pulsaciones suaves.</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fas fa-mouse"></i> Ratón</h3>
+                <ul>
+                    <li>Muñeca y antebrazo en posición neutra.</li>
+                    <li>Evitar fuerza excesiva.</li>
+                    <li>Mantenerlo limpio para un buen deslizamiento.</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fas fa-shoe-prints"></i> Reposapiés</h3>
+                <ul>
+                    <li>Necesario si los pies no llegan al suelo.</li>
+                    <li>Inclinación 0º–15º.</li>
+                    <li>Superficie antideslizante.</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fas fa-table"></i> Mesa</h3>
+                <ul>
+                    <li>180 cm ancho, 80 cm profundidad.</li>
+                    <li>Altura 70–75 cm.</li>
+                    <li>Espacio libre para piernas.</li>
+                    <li>Superficie mate y colores neutros.</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fas fa-file-alt"></i> Atril</h3>
+                <ul>
+                    <li>Ideal para introducción de datos.</li>
+                    <li>Ajustable en altura e inclinación.</li>
+                    <li>Colocado junto a la pantalla.</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fas fa-user"></i> Postura correcta</h3>
+                <ul>
+                    <li>Espalda apoyada y recta.</li>
+                    <li>Brazos relajados, antebrazos paralelos al suelo.</li>
+                    <li>Muñecas rectas.</li>
+                    <li>Pies apoyados en el suelo o reposapiés.</li>
+                    <li>Cabeza vertical o ligeramente inclinada.</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- NAVEGACIÓN INFERIOR -->
+        <div class="bottom-nav">
+            <a href="carga-mental.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Carga Mental</a>
+            <a href="pausas.html" class="nav-btn">Ejercicios y Pausas <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="author">
+            Autor: Sergio Quemada López
+        </div>
+
+    </main>
+
+</body>
+</html>
