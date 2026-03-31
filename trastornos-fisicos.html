@@ -1,255 +1,86 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trastornos Físicos - Prevención IT</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --bg-dark: #0a0f1d;
-            --sidebar-bg: #0f172a;
-            --card-bg: #1e293b;
-            --blue: #3b82f6;
-            --cyan: #06b6d4;
-            --purple: #8b5cf6;
-            --rose: #f43f5e;
-            --amber: #f59e0b;
-            --text-main: #f1f5f9;
-            --text-dim: #94a3b8;
-            --border: #1e293b;
-        }
+---
+layout: layout.html
+title: Trastornos Físicos
+---
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Inter', 'Segoe UI', sans-serif;
-            margin: 0;
-            display: flex;
-            min-height: 100vh;
-        }
+<section class="header-box">
+    <h1 class="page-title">{{ page.title }}</h1>
+    <p class="page-description">
+        Derivados del trabajo en el sector informático. El uso prolongado de ordenadores puede generar trastornos musculoesqueléticos que afectan principalmente a la espalda, cuello, hombros, brazos, muñecas y piernas.
+    </p>
+</section>
 
-        nav {
-            width: 260px;
-            background: var(--sidebar-bg);
-            border-right: 1px solid var(--border);
-            padding: 1.5rem 0.8rem;
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            box-sizing: border-box;
-            flex-shrink: 0;
-            overflow-y: auto;
-        }
+<div class="info-grid">
 
-        nav h2 { font-size: 1.1rem; color: white; margin-bottom: 2rem; padding-left: 10px; font-weight: bold; }
+    <div class="info-card card-cuello">
+        <img src="imagenes/cuello.avif" alt="Dolor de cuello" class="card-img">
+        <h3><i class="fas fa-head-side-virus"></i> Dolor de cuello</h3>
+        <p>Aparece cuando el trabajador mantiene el cuello girado, flexionado o extendido durante largos periodos.</p>
+        <strong>Causas frecuentes:</strong>
+        <ul>
+            <li>Pantallas colocadas demasiado altas o bajas.</li>
+            <li>Monitores situados a un lado, obligando a girar la cabeza.</li>
+            <li>Posturas mantenidas sin descanso.</li>
+        </ul>
+    </div>
 
-        .menu-category {
-            font-size: 0.7rem;
-            color: #475569;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin: 1.5rem 0 0.5rem 10px;
-            letter-spacing: 1px;
-        }
+    <div class="info-card card-hombros">
+        <img src="imagenes/hombro.jpg" alt="Dolor de hombros" class="card-img">
+        <h3><i class="fas fa-user-alt"></i> Hombros y Espalda Alta</h3>
+        <p>Relacionadas con la tensión de la musculatura de la cintura escapular (hombros elevados o en tensión).</p>
+        <strong>Suelen aparecer cuando:</strong>
+        <ul>
+            <li>No se apoyan los antebrazos al teclear o usar el ratón.</li>
+            <li>La mesa está demasiado alta, obligando a elevar los hombros.</li>
+        </ul>
+    </div>
 
-        nav a {
-            display: flex;
-            align-items: center;
-            color: var(--text-dim);
-            text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 8px;
-            margin-bottom: 4px;
-            transition: 0.2s;
-            font-size: 0.9rem;
-        }
+    <div class="info-card card-espalda">
+        <img src="imagenes/espalda.webp" alt="Dolor lumbar" class="card-img">
+        <h3><i class="fas fa-accessibility"></i> Zona Lumbar y Dorsal</h3>
+        <p>La postura sentada durante muchas horas provoca carga en las vértebras, ligamentos y musculatura.</p>
+        <strong>Factores que lo agravan:</strong>
+        <ul>
+            <li>Sillas sin apoyo lumbar adecuado.</li>
+            <li>Permanecer mucho tiempo sentado sin cambiar de postura.</li>
+        </ul>
+    </div>
 
-        nav a i { margin-right: 12px; width: 18px; text-align: center; }
-        nav a.active { background: var(--blue); color: white; font-weight: 500; }
-        nav a:hover:not(.active) { background: rgba(255, 255, 255, 0.05); color: white; }
+    <div class="info-card card-manos">
+        <img src="imagenes/muñeca.webp" alt="Túnel carpiano" class="card-img">
+        <h3><i class="fas fa-hand-sparkles"></i> Manos y Muñecas</h3>
+        <p>Debido al mantenimiento de la muñeca en posiciones forzadas: extendida, flexionada o desviada.</p>
+        <strong>Factores contribuyentes:</strong>
+        <ul>
+            <li>Uso repetitivo del ratón (Síndrome del Túnel Carpiano).</li>
+            <li>Teclados demasiado altos o inclinados.</li>
+        </ul>
+    </div>
 
-        main { flex: 1; padding: 3rem 2rem; max-width: 1200px; margin: 0 auto; }
+    <div class="info-card card-piernas">
+        <img src="imagenes/piernas.jpg" alt="Circulación piernas" class="card-img">
+        <h3><i class="fas fa-shoe-prints"></i> Piernas y Circulación</h3>
+        <p>Permanecer sentado mucho tiempo puede provocar entumecimiento y mala circulación.</p>
+        <strong>Ocurre especialmente cuando:</strong>
+        <ul>
+            <li>Los pies no apoyan correctamente en el suelo.</li>
+            <li>Presión en la parte posterior de las rodillas.</li>
+        </ul>
+    </div>
 
-        .header-box {
-            text-align: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 3rem;
-            margin-bottom: 4rem;
-        }
+    <div class="info-card card-fatiga">
+        <img src="imagenes/general.avif" alt="Fatiga general" class="card-img">
+        <h3><i class="fas fa-battery-quarter"></i> Fatiga Muscular General</h3>
+        <p>Mantener una misma postura genera tensión acumulada en espalda, cuello, hombros, brazos y piernas.</p>
+        <strong>En resumen:</strong>
+        <p>Se deben a posturas inadecuadas, malas posiciones del equipo y movimientos repetitivos.</p>
+    </div>
 
-        .header-box h1 { 
-            font-size: 3.5rem; 
-            margin: 0 0 1rem 0; 
-            background: linear-gradient(to right, #fff, var(--blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+</div>
 
-        .header-box p { font-size: 1.25rem; color: var(--text-dim); max-width: 900px; margin: 0 auto; line-height: 1.6; }
+<div class="bottom-nav">
+    <a href="index.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Volver a Inicio</a>
+    <a href="fatiga-visual.html" class="nav-btn">Fatiga Visual <i class="fas fa-arrow-right"></i></a>
+</div>
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .info-card {
-            background: var(--card-bg);
-            border-radius: 24px;
-            padding: 2.5rem;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .info-card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px rgba(0,0,0,0.5); border-color: rgba(255,255,255,0.2); }
-
-        .card-img {
-            width: calc(100% + 5rem);
-            height: 200px;
-            object-fit: cover;
-            margin: -2.5rem -2.5rem 1.5rem -2.5rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .info-card h3 { display: flex; align-items: center; gap: 15px; font-size: 1.6rem; margin-top: 0; margin-bottom: 1rem; }
-        
-        .card-cuello { border-left: 6px solid var(--cyan); } .card-cuello h3 { color: var(--cyan); }
-        .card-hombros { border-left: 6px solid var(--purple); } .card-hombros h3 { color: var(--purple); }
-        .card-espalda { border-left: 6px solid var(--blue); } .card-espalda h3 { color: var(--blue); }
-        .card-manos { border-left: 6px solid var(--rose); } .card-manos h3 { color: var(--rose); }
-        .card-piernas { border-left: 6px solid var(--amber); } .card-piernas h3 { color: var(--amber); }
-        .card-fatiga { border-left: 6px solid #fff; }
-
-        p { color: var(--text-dim); line-height: 1.8; font-size: 1.1rem; }
-        ul { padding-left: 1.2rem; color: var(--text-dim); line-height: 1.8; }
-        ul li { margin-bottom: 10px; list-style-type: none; position: relative; }
-        ul li::before { content: "•"; color: inherit; position: absolute; left: -1.2rem; font-weight: bold; }
-        strong { color: white; display: block; margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.1rem; }
-
-        .bottom-nav {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 6rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .nav-btn {
-            text-decoration: none;
-            color: white;
-            padding: 16px 30px;
-            border-radius: 16px;
-            background: rgba(255,255,255,0.05);
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 600;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .nav-btn:hover { background: var(--blue); transform: scale(1.05); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
-
-        .author { text-align: center; margin-top: 4rem; color: var(--text-dim); padding-bottom: 3rem; }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <h2>RIESGOS IT</h2>
-        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
-        <div class="menu-category">1. RIESGOS</div>
-        <a href="trastornos-fisicos.html" class="active"><i class="fas fa-bone"></i> T. Físicos</a>
-        <a href="fatiga-visual.html"><i class="fas fa-eye"></i> Fatiga Visual</a>
-        <a href="carga-mental.html"><i class="fas fa-brain"></i> Carga Mental</a>
-        <div class="menu-category">2. PREVENCIÓN</div>
-        <a href="#"><i class="fas fa-chair"></i> Diseño Puesto</a>
-        <a href="pausas.html"><i class="fas fa-walking"></i> Pausas</a>
-        <a href="#"><i class="fas fa-leaf"></i> Higiene</a>
-        <a href="Referencias.html"><i class="fas fa-book"></i> Referencias</a>
-    </nav>
-
-    <main>
-        <section class="header-box">
-            <h1>Trastornos Físicos</h1>
-            <p>Derivados del trabajo en el sector informático. El uso prolongado de ordenadores puede generar trastornos musculoesqueléticos que afectan principalmente a la espalda, cuello, hombros, brazos, muñecas y piernas.</p>
-        </section>
-
-        <div class="info-grid">
-            <div class="info-card card-cuello">
-                <img src="imagenes/cuello.avif" alt="Dolor de cuello" class="card-img">
-                <h3><i class="fas fa-head-side-virus"></i> Dolor de cuello</h3>
-                <p>Aparece cuando el trabajador mantiene el cuello girado, flexionado o extendido durante largos periodos.</p>
-                <strong>Causas frecuentes:</strong>
-                <ul>
-                    <li>Pantallas colocadas demasiado altas o bajas.</li>
-                    <li>Monitores situados a un lado, obligando a girar la cabeza.</li>
-                    <li>Posturas mantenidas sin descanso.</li>
-                </ul>
-            </div>
-
-            <div class="info-card card-hombros">
-                <img src="imagenes/hombro.jpg" alt="Dolor de hombros" class="card-img">
-                <h3><i class="fas fa-user-alt"></i> Hombros y Espalda Alta</h3>
-                <p>Relacionadas con la tensión de la musculatura de la cintura escapular (hombros elevados o en tensión).</p>
-                <strong>Suelen aparecer cuando:</strong>
-                <ul>
-                    <li>No se apoyan los antebrazos al teclear o usar el ratón.</li>
-                    <li>La mesa está demasiado alta, obligando a elevar los hombros.</li>
-                </ul>
-            </div>
-
-            <div class="info-card card-espalda">
-                <img src="imagenes/espalda.webp" alt="Dolor lumbar" class="card-img">
-                <h3><i class="fas fa-accessibility"></i> Zona Lumbar y Dorsal</h3>
-                <p>La postura sentada durante muchas horas provoca carga en las vértebras, ligamentos y musculatura.</p>
-                <strong>Factores que lo agravan:</strong>
-                <ul>
-                    <li>Sillas sin apoyo lumbar adecuado.</li>
-                    <li>Permanecer mucho tiempo sentado sin cambiar de postura.</li>
-                </ul>
-            </div>
-
-            <div class="info-card card-manos">
-                <img src="imagenes/muñeca.webp" alt="Túnel carpiano" class="card-img">
-                <h3><i class="fas fa-hand-sparkles"></i> Manos y Muñecas</h3>
-                <p>Debido al mantenimiento de la muñeca en posiciones forzadas: extendida, flexionada o desviada.</p>
-                <strong>Factores contribuyentes:</strong>
-                <ul>
-                    <li>Uso repetitivo del ratón (Síndrome del Túnel Carpiano).</li>
-                    <li>Teclados demasiado altos o inclinados.</li>
-                </ul>
-            </div>
-
-            <div class="info-card card-piernas">
-                <img src="imagenes/piernas.jpg" alt="Circulación piernas" class="card-img">
-                <h3><i class="fas fa-shoe-prints"></i> Piernas y Circulación</h3>
-                <p>Permanecer sentado mucho tiempo puede provocar entumecimiento y mala circulación.</p>
-                <strong>Ocurre especialmente cuando:</strong>
-                <ul>
-                    <li>Los pies no apoyan correctamente en el suelo.</li>
-                    <li>Presión en la parte posterior de las rodillas.</li>
-                </ul>
-            </div>
-
-            <div class="info-card card-fatiga">
-                <img src="imagenes/general.avif" alt="Fatiga general" class="card-img">
-                <h3><i class="fas fa-battery-quarter"></i> Fatiga Muscular General</h3>
-                <p>Mantener una misma postura genera tensión acumulada en espalda, cuello, hombros, brazos y piernas.</p>
-                <strong>En resumen:</strong>
-                <p>Se deben a posturas inadecuadas, malas posiciones del equipo y movimientos repetitivos.</p>
-            </div>
-        </div>
-
-        <div class="bottom-nav">
-            <a href="index.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Volver a Inicio</a>
-            <a href="fatiga-visual.html" class="nav-btn">Fatiga Visual <i class="fas fa-arrow-right"></i></a>
-        </div>
-
-        <div class="author">Autor: Sergio Quemada López</div>
-    </main>
-</body>
-</html>
+<div class="author">Autor: Sergio Quemada López</div>
