@@ -12,6 +12,10 @@
             --sidebar-bg: #0f172a;
             --card-bg: #1e293b;
             --blue: #3b82f6;
+            --cyan: #06b6d4;
+            --purple: #8b5cf6;
+            --rose: #f43f5e;
+            --amber: #f59e0b;
             --text-main: #f1f5f9;
             --text-dim: #94a3b8;
             --border: #1e293b;
@@ -97,13 +101,106 @@
             text-align: center;
             line-height: 1.6;
         }
+
+        /* TARJETAS */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .card-img {
+            width: calc(100% + 5rem);
+            height: 200px;
+            object-fit: cover;
+            margin: -2.5rem -2.5rem 1.5rem -2.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .info-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .card-cuello { border-left: 6px solid var(--cyan); }
+        .card-cuello h3 { color: var(--cyan); }
+
+        .card-hombros { border-left: 6px solid var(--purple); }
+        .card-hombros h3 { color: var(--purple); }
+
+        .card-espalda { border-left: 6px solid var(--blue); }
+        .card-espalda h3 { color: var(--blue); }
+
+        .card-manos { border-left: 6px solid var(--rose); }
+        .card-manos h3 { color: var(--rose); }
+
+        .card-piernas { border-left: 6px solid var(--amber); }
+        .card-piernas h3 { color: var(--amber); }
+
+        .card-fatiga { border-left: 6px solid #fff; }
+
+        /* FLECHAS */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 6rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            color: white;
+            padding: 16px 30px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.05);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-btn:hover {
+            background: var(--blue);
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .author {
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--text-dim);
+            padding-bottom: 3rem;
+        }
     </style>
 </head>
 
 <body>
 
     <nav>
-        <h2>Riesgos y Medidas de prevención IT</h2>
+        <h2>RIESGOS Y MEDIDAS DE PREVENCIÓN IT</h2>
 
         <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
 
@@ -112,10 +209,12 @@
         <a href="fatiga-visual.html"><i class="fas fa-eye"></i> Fatiga Visual</a>
         <a href="carga-mental.html"><i class="fas fa-brain"></i> Carga Mental</a>
 
-        <div class="menu-category">2. MEDIDAS</div>
+        <div class="menu-category">2. PREVENCIÓN</div>
         <a href="Diseño-del-puesto.html"><i class="fas fa-chair"></i> Diseño del Puesto</a>
         <a href="pausas.html"><i class="fas fa-walking"></i> Pausas</a>
         <a href="higiene.html"><i class="fas fa-leaf"></i> Higiene Ambiental</a>
+
+        <div class="menu-category">3. OTROS</div>
         <a href="Referencias.html"><i class="fas fa-book"></i> Referencias</a>
     </nav>
 
