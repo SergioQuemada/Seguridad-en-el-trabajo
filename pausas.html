@@ -3,50 +3,52 @@ layout: default
 title: Ejercicios y Pausas
 ---
 
-<a href="index.html" class="back-btn">
-    <i class="fas fa-arrow-left"></i> Volver al inicio
-</a>
-
-<header>
-    <h2>Ejercicios y Pausas</h2>
-    <p style="color: #94a3b8;">
-        Prevención del sedentarismo y trastornos musculoesqueléticos
+<section class="header-box">
+    <h1 class="page-title">{{ page.title }}</h1>
+    <p class="page-description">
+        Prevención del sedentarismo y trastornos musculoesqueléticos.
     </p>
-</header>
+</section>
 
-<div class="contenido-detalle">
+<div class="info-grid">
 
-    <h3 class="section-title">¿Por qué son necesarias?</h3>
-    <p>
-        El trabajo en el sector IT implica pasar largas jornadas en postura estática. 
-        El sedentarismo prolongado reduce la circulación, sobrecarga la columna y genera 
-        tensión acumulada en las articulaciones. Las pausas activas son la herramienta 
-        principal para resetear el cuerpo y la mente.
-    </p>
+    <div class="info-card">
+        <h3><i class="fas fa-clock"></i> ¿Por qué son necesarias?</h3>
+        <p>
+            El trabajo en el sector IT implica pasar largas jornadas en postura estática.
+            El sedentarismo prolongado reduce la circulación, sobrecarga la columna y genera tensión acumulada.
+            Las pausas activas son esenciales para resetear cuerpo y mente.
+        </p>
+    </div>
 
-    <h3 class="section-title">Rutina de Estiramientos</h3>
-    <ul>
-        <li><strong>Cuello y Hombros:</strong> Giros suaves de cuello y encogimiento de hombros hacia atrás.</li>
-        <li><strong>Muñecas (Túnel Carpiano):</strong> Estira el brazo y tira de los dedos hacia atrás suavemente.</li>
-        <li><strong>Zona Lumbar:</strong> Torsiones de tronco o tocar las puntas de los pies.</li>
-        <li><strong>Piernas:</strong> Camina al menos 2 minutos cada hora.</li>
-    </ul>
+    <div class="info-card">
+        <h3><i class="fas fa-child"></i> Rutina de Estiramientos</h3>
+        <ul>
+            <li><strong>Cuello y Hombros:</strong> Giros suaves y encogimiento hacia atrás.</li>
+            <li><strong>Muñecas (Túnel Carpiano):</strong> Estirar brazo y tirar de los dedos suavemente.</li>
+            <li><strong>Zona Lumbar:</strong> Torsiones de tronco o tocar las puntas de los pies.</li>
+            <li><strong>Piernas:</strong> Caminar al menos 2 minutos cada hora.</li>
+        </ul>
+    </div>
 
-    <h3 class="section-title">Recomendaciones de Salud</h3>
-    <ul>
-        <li><strong>Micro-pausas:</strong> Cada 50-60 minutos, tómate 5 minutos de movimiento activo.</li>
-        <li><strong>Cambio de Postura:</strong> No mantengas la misma posición más de una hora.</li>
-        <li><strong>Hidratación:</strong> Beber agua ayuda a levantarte con frecuencia.</li>
-        <li><strong>Alertas:</strong> Usa recordatorios para evitar el sedentarismo.</li>
-    </ul>
+    <div class="info-card">
+        <h3><i class="fas fa-heartbeat"></i> Recomendaciones de Salud</h3>
+        <ul>
+            <li><strong>Micro-pausas:</strong> 5 minutos cada 50–60 minutos.</li>
+            <li><strong>Cambio de postura:</strong> No mantener la misma más de una hora.</li>
+            <li><strong>Hidratación:</strong> Beber agua con frecuencia.</li>
+            <li><strong>Alertas:</strong> Usar recordatorios para evitar el sedentarismo.</li>
+        </ul>
+    </div>
 
 </div>
 
-<script>
-// Marca el enlace correcto en el menú
-document.querySelectorAll("nav a").forEach(a => {
-    if (a.getAttribute("href") === "pausas.html") {
-        a.classList.add("active");
-    }
-});
-</script>
+<div class="bottom-nav">
+    <a href="Diseño-del-puesto.html" class="nav-btn">
+        <i class="fas fa-arrow-left"></i> Diseño del Puesto
+    </a>
+
+    <a href="higiene.html" class="nav-btn">
+        Higiene Ambiental <i class="fas fa-arrow-right"></i>
+    </a>
+</div>
