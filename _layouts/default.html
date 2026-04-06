@@ -83,7 +83,7 @@
             margin: 0 auto;
         }
 
-        /* TÍTULO CELESTITO */
+        /* TÍTULOS */
         .page-title {
             font-size: 3.5rem;
             margin: 0 0 1rem 0;
@@ -117,6 +117,8 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .info-card:hover {
@@ -142,6 +144,13 @@
             margin-bottom: 1rem;
         }
 
+        .info-card ul {
+            color: var(--text-dim);
+            padding-left: 1.2rem;
+            line-height: 1.6;
+        }
+
+        /* --- COLORES ESPECÍFICOS: TRASTORNOS --- */
         .card-cuello { border-left: 6px solid var(--cyan); }
         .card-cuello h3 { color: var(--cyan); }
 
@@ -159,7 +168,26 @@
 
         .card-fatiga { border-left: 6px solid #fff; }
 
-        /* FLECHAS */
+        /* --- NUEVOS COLORES: DISEÑO DEL PUESTO --- */
+        .card-silla { border-left: 6px solid var(--cyan); }
+        .card-silla h3 { color: var(--cyan); }
+
+        .card-pantalla { border-left: 6px solid var(--purple); }
+        .card-pantalla h3 { color: var(--purple); }
+
+        .card-teclado { border-left: 6px solid var(--blue); }
+        .card-teclado h3 { color: var(--blue); }
+
+        .card-raton { border-left: 6px solid var(--rose); }
+        .card-raton h3 { color: var(--rose); }
+
+        .card-reposapies { border-left: 6px solid var(--amber); }
+        .card-reposapies h3 { color: var(--amber); }
+
+        .card-mesa { border-left: 6px solid #94a3b8; }
+        .card-mesa h3 { color: #94a3b8; }
+
+        /* NAVEGACIÓN Y AUTOR */
         .bottom-nav {
             display: flex;
             justify-content: space-between;
