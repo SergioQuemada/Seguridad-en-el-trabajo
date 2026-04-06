@@ -187,6 +187,26 @@
         .card-mesa { border-left: 6px solid #94a3b8; }
         .card-mesa h3 { color: #94a3b8; }
 
+        /* Estilo base para las tarjetas de información */
+        .info-card {
+            border-left: 5px solid; /* Grosor del borde izquierdo */
+            transition: all 0.3s ease; /* Suavidad al quitar el color */
+        }
+
+        /* Colores específicos para cada tarjeta de Fatiga Visual */
+        .card-ojo    { border-color: #3b82f6; } /* Azul */
+        .card-rojo   { border-color: #ef4444; } /* Rojo */
+        .card-borroso { border-color: #a855f7; } /* Púrpura */
+        .card-cabeza  { border-color: #f59e0b; } /* Ámbar */
+        .card-reloj   { border-color: #10b981; } /* Verde */
+        .card-luz     { border-color: #06b6d4; } /* Cian */
+    
+        /* Efecto: Al pasar el cursor, el borde se vuelve transparente */
+        .info-card:hover {
+            border-color: transparent !important;
+            transform: translateY(-5px); /* Opcional: un pequeño salto hacia arriba */
+        }
+
         /* NAVEGACIÓN Y AUTOR */
         .bottom-nav {
             display: flex;
