@@ -3,24 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <title>Referencias</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        button {
+            display: block;
+            margin: 0 auto 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #e9ecef;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
+<div class="container">
+
 <h1>Referencias Bibliográficas</h1>
 
-<ul>
-    <li><a href="https://www.unir.net/revista/ingenieria/riesgos-laborales-informatica/" target="_blank">
-        UNIR – Riesgos laborales en informática
-    </a></li>
+<button onclick="window.location.href='index.html'">Volver al inicio</button>
 
-    <li><a href="https://www.unirioja.es/servicios/sprl/pdf/guia_oficinas.pdf" target="_blank">
-        Universidad de La Rioja – Guía de oficinas (PDF)
-    </a></li>
+<table>
+    <tr>
+        <td><a href="https://www.unir.net/revista/ingenieria/riesgos-laborales-informatica/" target="_blank">
+            UNIR – Riesgos laborales en informática
+        </a></td>
+    </tr>
+    <tr>
+        <td><a href="https://www.unirioja.es/servicios/sprl/pdf/guia_oficinas.pdf" target="_blank">
+            Universidad de La Rioja – Guía de oficinas (PDF)
+        </a></td>
+    </tr>
+    <tr>
+        <td><a href="https://prvprevencion.com/prevencion-riesgos-laborales-informatica/#Riesgos_fisicos" target="_blank">
+            PRV Prevención – Riesgos laborales en informática
+        </a></td>
+    </tr>
+</table>
 
-    <li><a href="https://prvprevencion.com/prevencion-riesgos-laborales-informatica/#Riesgos_fisicos" target="_blank">
-        PRV Prevención – Riesgos laborales en informática
-    </a></li>
-</ul>
+</div>
 
 </body>
 </html>
