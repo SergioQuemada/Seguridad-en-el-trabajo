@@ -1,127 +1,360 @@
----
-layout: default
-title: Diseño del Puesto
----
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño del Puesto - Prevención IT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-<section class="header-box">
-    <h1 class="page-title">{{ page.title }}</h1>
-    <p class="page-description">
-        Principales recomendaciones ergonómicas para un entorno informático saludable. 
-        Un buen diseño del espacio de trabajo es vital para prevenir lesiones a largo plazo.
-    </p>
-</section>
+    <style>
+        :root {
+            --bg-dark: #0a0f1d;
+            --sidebar-bg: #0f172a;
+            --card-bg: #1e293b;
+            --blue: #3b82f6;
+            --cyan: #06b6d4;
+            --purple: #8b5cf6;
+            --rose: #f43f5e;
+            --amber: #f59e0b;
+            --text-main: #f1f5f9;
+            --text-dim: #94a3b8;
+            --border: #1e293b;
+        }
 
-<div class="info-grid">
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+        }
 
-    <div class="info-card card-silla">
-        <img src="imagenes/silla.webp" alt="Silla ergonómica" class="card-img">
-        <div class="card-content">
-            <h3><i class="fas fa-chair"></i> Silla ergonómica</h3>
-            <ul>
-                <li>Altura regulable (codos entre 70º y 115º).</li>
-                <li>Respaldo con apoyo lumbar ajustable.</li>
-                <li>Base estable de cinco apoyos con ruedas.</li>
-                <li>Apoyabrazos regulables en altura.</li>
-            </ul>
+        /* MENÚ LATERAL */
+        nav {
+            width: 260px;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--border);
+            padding: 1.5rem 0.8rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        nav h2 {
+            font-size: 1.1rem;
+            color: white;
+            margin-bottom: 2rem;
+            padding-left: 10px;
+            font-weight: bold;
+        }
+
+        .menu-category {
+            font-size: 0.7rem;
+            color: #475569;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin: 1.5rem 0 0.5rem 10px;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            display: flex;
+            align-items: center;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 4px;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+
+        nav a i { margin-right: 12px; width: 18px; text-align: center; }
+        nav a.active { background: var(--blue); color: white; font-weight: 500; }
+        nav a:hover:not(.active) { background: rgba(255, 255, 255, 0.05); color: white; }
+
+        /* CONTENIDO */
+        main {
+            flex: 1;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            margin: 0 0 1rem 0;
+            background: linear-gradient(to right, #fff, var(--blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+
+        .page-description {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            max-width: 900px;
+            margin: 0 auto 3rem auto;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* TARJETAS */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        .info-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.6rem;
+            margin: 0 0 1rem 0;
+        }
+
+        .info-card ul {
+            color: var(--text-dim);
+            padding-left: 1.2rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* COLORES DE BORDES IZQUIERDOS */
+        .card-silla { border-left: 6px solid var(--cyan); }
+        .card-silla h3 { color: var(--cyan); }
+
+        .card-pantalla { border-left: 6px solid var(--purple); }
+        .card-pantalla h3 { color: var(--purple); }
+
+        .card-teclado { border-left: 6px solid var(--blue); }
+        .card-teclado h3 { color: var(--blue); }
+
+        .card-raton { border-left: 6px solid var(--rose); }
+        .card-raton h3 { color: var(--rose); }
+
+        .card-reposapies { border-left: 6px solid var(--amber); }
+        .card-reposapies h3 { color: var(--amber); }
+
+        .card-mesa { border-left: 6px solid #94a3b8; }
+        .card-mesa h3 { color: #94a3b8; }
+
+        .card-hombros { border-left: 6px solid var(--purple); }
+        .card-hombros h3 { color: var(--purple); }
+
+        .card-fatiga { border-left: 6px solid #fff; }
+
+        /* NAVEGACIÓN Y AUTOR */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 6rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            color: white;
+            padding: 16px 30px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.05);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-btn:hover {
+            background: var(--blue);
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .author {
+            text-align: center;
+            margin-top: 5rem;
+            color: var(--text-dim);
+            padding-bottom: 3rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h2>RIESGOS Y PREVENCIÓN IT</h2>
+        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+
+        <div class="menu-category">1. RIESGOS</div>
+        <a href="trastornos-fisicos.html"><i class="fas fa-bone"></i> T. Físicos</a>
+        <a href="fatiga-visual.html"><i class="fas fa-eye"></i> Fatiga Visual</a>
+        <a href="carga-mental.html"><i class="fas fa-brain"></i> Carga Mental</a>
+
+        <div class="menu-category">2. PREVENCIÓN</div>
+        <a href="Diseño-del-puesto.html" class="active"><i class="fas fa-chair"></i> Diseño del Puesto</a>
+        <a href="pausas.html"><i class="fas fa-walking"></i> Pausas</a>
+        <a href="higiene.html"><i class="fas fa-leaf"></i> Higiene Ambiental</a>
+
+        <div class="menu-category">3. OTROS</div>
+        <a href="Referencias.html"><i class="fas fa-book"></i> Referencias</a>
+    </nav>
+
+    <main>
+        <section class="header-box">
+            <h1 class="page-title">Diseño del Puesto</h1>
+            <p class="page-description">
+                Principales recomendaciones ergonómicas para un entorno informático saludable. 
+                Un buen diseño del espacio de trabajo es vital para prevenir lesiones a largo plazo.
+            </p>
+        </section>
+
+        <div class="info-grid">
+
+            <div class="info-card card-silla">
+                <img src="imagenes/silla.webp" alt="Silla ergonómica" class="card-img">
+                <div class="card-content">
+                    <h3><i class="fas fa-chair"></i> Silla ergonómica</h3>
+                    <ul>
+                        <li>Altura regulable (codos entre 70º y 115º).</li>
+                        <li>Respaldo con apoyo lumbar ajustable.</li>
+                        <li>Base estable de cinco apoyos con ruedas.</li>
+                        <li>Apoyabrazos regulables en altura.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card card-pantalla">
+                <img src="imagenes/pantalla.webp" alt="Pantalla" class="card-img">
+                <div class="card-content">
+                    <h3><i class="fas fa-desktop"></i> Pantalla</h3>
+                    <ul>
+                        <li>Frente al usuario, evitando giros de cuello.</li>
+                        <li>Distancia recomendada de 60–80 cm.</li>
+                        <li>Borde superior a la altura de los ojos.</li>
+                        <li>Ajustar brillo para evitar fatiga visual.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card card-hombros">
+                <img src="imagenes/atril.webp" alt="Atril para documentos" class="card-img">
+                <div class="card-content">
+                    <h3><i class="fas fa-file-alt"></i> Atril</h3>
+                    <ul>
+                        <li>Colocado a la misma altura y distancia que la pantalla.</li>
+                        <li>Evita movimientos repetitivos de cuello.</li>
+                        <li>Recomendado si se trabaja con papel habitualmente.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card card-teclado">
+                <img src="imagenes/teclado.webp" alt="Teclado" class="card-img">
+                <div class="card-content">
+                    <h3><i class="fas fa-keyboard"></i> Teclado</h3>
+                    <ul>
+                        <li>Ubicado a la altura del codo.</li>
+                        <li>Espacio de 10 cm para apoyo de muñecas.</li>
+                        <li>Mantener muñecas rectas y relajadas.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card card-raton">
+                <img src="imagenes/raton.jpg" alt="Ratón" class="card-img">
+                <div class="card-content">
+                    <h3><i class="fas fa-mouse"></i> Ratón</h3>
+                    <ul>
+                        <li>Diseño ergonómico que llene la palma.</li>
+                        <li>Muñeca en posición neutra (sin doblar).</li>
+                        <li>Uso de alfombrilla para mejor precisión.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card card-piernas">
+                <img src="imagenes/reposapies.jpg" alt="Reposapiés" class="card-img">
+                <div class="card-content">
+                    <h3><i class="fas fa-shoe-prints"></i> Reposapiés</h3>
+                    <ul>
+                        <li>Necesario si los pies no llegan al suelo.</li>
+                        <li>Inclinación ajustable entre 0º y 15º.</li>
+                        <li>Superficie rugosa y antideslizante.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card card-mesa">
+                <img src="imagenes/mesa.jpg" alt="Mesa" class="card-img">
+                <div class="card-content">
+                    <h3><i class="fas fa-table"></i> Mesa de Trabajo</h3>
+                    <ul>
+                        <li>Superficie amplia (mínimo 180x80 cm).</li>
+                        <li>Altura libre para piernas sin obstáculos.</li>
+                        <li>Acabado mate para evitar reflejos.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card card-fatiga">
+                <img src="imagenes/postura.webp" alt="Postura" class="card-img">
+                <div class="card-content">
+                    <h3><i class="fas fa-user"></i> Postura General</h3>
+                    <ul>
+                        <li>Espalda totalmente apoyada en el respaldo.</li>
+                        <li>Pies firmes en el suelo o reposapiés.</li>
+                        <li>Ángulo de rodillas y cadera cercano a 90º.</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
-    </div>
 
-    <div class="info-card card-pantalla">
-        <img src="imagenes/pantalla.webp" alt="Pantalla" class="card-img">
-        <div class="card-content">
-            <h3><i class="fas fa-desktop"></i> Pantalla</h3>
-            <ul>
-                <li>Frente al usuario, evitando giros de cuello.</li>
-                <li>Distancia recomendada de 60–80 cm.</li>
-                <li>Borde superior a la altura de los ojos.</li>
-                <li>Ajustar brillo para evitar fatiga visual.</li>
-            </ul>
+        <div class="bottom-nav">
+            <a href="trastornos-fisicos.html" class="nav-btn">
+                <i class="fas fa-arrow-left"></i> Trastornos Físicos
+            </a>
+            <a href="pausas.html" class="nav-btn">
+                Ejercicios y Pausas <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
-    </div>
 
-    <div class="info-card card-hombros">
-        <img src="imagenes/atril.webp" alt="Atril para documentos" class="card-img">
-        <div class="card-content">
-            <h3><i class="fas fa-file-alt"></i> Atril</h3>
-            <ul>
-                <li>Colocado a la misma altura y distancia que la pantalla.</li>
-                <li>Evita movimientos repetitivos de cuello arriba y abajo.</li>
-                <li>Recomendado si se trabaja habitualmente con papel.</li>
-            </ul>
-        </div>
-    </div>
+        <div class="author">Autor: Sergio Quemada López</div>
+    </main>
 
-    <div class="info-card card-teclado">
-        <img src="imagenes/teclado.webp" alt="Teclado" class="card-img">
-        <div class="card-content">
-            <h3><i class="fas fa-keyboard"></i> Teclado</h3>
-            <ul>
-                <li>Ubicado a la altura del codo.</li>
-                <li>Espacio de 10 cm para apoyo de muñecas.</li>
-                <li>Mantener muñecas rectas y relajadas.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="info-card card-raton">
-        <img src="imagenes/raton.jpg" alt="Ratón" class="card-img">
-        <div class="card-content">
-            <h3><i class="fas fa-mouse"></i> Ratón</h3>
-            <ul>
-                <li>Diseño ergonómico que llene la palma.</li>
-                <li>Muñeca en posición neutra (sin doblar).</li>
-                <li>Uso de alfombrilla para mejor precisión.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="info-card card-piernas">
-        <img src="imagenes/reposapies.jpg" alt="Reposapiés" class="card-img">
-        <div class="card-content">
-            <h3><i class="fas fa-shoe-prints"></i> Reposapiés</h3>
-            <ul>
-                <li>Necesario si los pies no llegan al suelo.</li>
-                <li>Inclinación ajustable entre 0º y 15º.</li>
-                <li>Superficie rugosa y antideslizante.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="info-card card-mesa">
-        <img src="imagenes/mesa.jpg" alt="Mesa" class="card-img">
-        <div class="card-content">
-            <h3><i class="fas fa-table"></i> Mesa de Trabajo</h3>
-            <ul>
-                <li>Superficie amplia (mínimo 180x80 cm).</li>
-                <li>Altura libre para piernas sin obstáculos.</li>
-                <li>Acabado mate para evitar reflejos.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="info-card card-fatiga">
-        <img src="imagenes/postura.webp" alt="Postura" class="card-img">
-        <div class="card-content">
-            <h3><i class="fas fa-user"></i> Postura General</h3>
-            <ul>
-                <li>Espalda totalmente apoyada en el respaldo.</li>
-                <li>Pies firmes en el suelo o reposapiés.</li>
-                <li>Ángulo de rodillas y cadera cercano a 90º.</li>
-            </ul>
-        </div>
-    </div>
-
-</div>
-
-<div class="bottom-nav">
-    <a href="trastornos-fisicos.html" class="nav-btn">
-        <i class="fas fa-arrow-left"></i> Trastornos Físicos
-    </a>
-    <a href="pausas.html" class="nav-btn">
-        Ejercicios y Pausas <i class="fas fa-arrow-right"></i>
-    </a>
-</div>
-
-<div class="author" style="text-align: center; margin-top: 5rem; color: #94a3b8; padding-bottom: 3rem; font-weight: bold;">
-    Autor: Sergio Quemada López
-</div>
+</body>
+</html>
