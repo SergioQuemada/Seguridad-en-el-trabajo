@@ -3,46 +3,315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fatiga Visual - Prevención IT</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="estilos.css"> 
+    <title>Fatiga Visual - Riesgos IT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #0a0f1d;
+            --sidebar-bg: #0f172a;
+            --card-bg: #1e293b;
+            --blue: #3b82f6;
+            --cyan: #06b6d4;
+            --purple: #8b5cf6;
+            --rose: #f43f5e;
+            --amber: #f59e0b;
+            --text-main: #f1f5f9;
+            --text-dim: #94a3b8;
+            --border: #1e293b;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* MENÚ LATERAL */
+        nav {
+            width: 260px;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--border);
+            padding: 1.5rem 0.8rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        nav h2 {
+            font-size: 1.1rem;
+            color: white;
+            margin-bottom: 2rem;
+            padding-left: 10px;
+            font-weight: bold;
+        }
+
+        .menu-category {
+            font-size: 0.7rem;
+            color: #475569;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin: 1.5rem 0 0.5rem 10px;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            display: flex;
+            align-items: center;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 4px;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+
+        nav a i { margin-right: 12px; width: 18px; text-align: center; }
+        nav a.active { background: var(--blue); color: white; font-weight: 500; }
+        nav a:hover:not(.active) { background: rgba(255, 255, 255, 0.05); color: white; }
+
+        /* CONTENIDO */
+        main {
+            flex: 1;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* TÍTULOS */
+        .page-title {
+            font-size: 3.5rem;
+            margin: 0 0 1rem 0;
+            background: linear-gradient(to right, #fff, var(--blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+
+        .page-description {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            max-width: 900px;
+            margin: 0 auto 3rem auto;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* TARJETAS */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .card-img {
+            width: calc(100% + 5rem);
+            height: 200px;
+            object-fit: cover;
+            margin: -2.5rem -2.5rem 1.5rem -2.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .info-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .info-card p {
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+
+        .info-card ul {
+            color: var(--text-dim);
+            padding-left: 1.2rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* COLORES ESPECÍFICOS PARA FATIGA VISUAL */
+        .card-ojo { border-left: 6px solid var(--blue); }
+        .card-ojo h3 { color: var(--blue); }
+
+        .card-rojo { border-left: 6px solid var(--rose); }
+        .card-rojo h3 { color: var(--rose); }
+
+        .card-borroso { border-left: 6px solid var(--purple); }
+        .card-borroso h3 { color: var(--purple); }
+
+        .card-cabeza { border-left: 6px solid var(--amber); }
+        .card-cabeza h3 { color: var(--amber); }
+
+        .card-reloj { border-left: 6px solid #10b981; } /* Verde para descansos */
+        .card-reloj h3 { color: #10b981; }
+
+        .card-luz { border-left: 6px solid var(--cyan); }
+        .card-luz h3 { color: var(--cyan); }
+
+        /* NAVEGACIÓN Y AUTOR */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 6rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            color: white;
+            padding: 16px 30px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.05);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-btn:hover {
+            background: var(--blue);
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .author {
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--text-dim);
+            padding-bottom: 3rem;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
+
 <body>
 
-    <nav class="sidebar">
-        <div class="logo">Salud IT</div>
-        <ul class="nav-links">
-            <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
-            <li><a href="trastornos-fisicos.html"><i class="fas fa-bone"></i> Trastornos Físicos</a></li>
-            <li><a href="fatiga-visual.html" class="active"><i class="fas fa-eye"></i> Fatiga Visual</a></li>
-            <li><a href="pausas.html"><i class="fas fa-walking"></i> Ejercicios y Pausas</a></li>
-        </ul>
+    <nav>
+        <h2>RIESGOS Y PREVENCIÓN IT</h2>
+        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+
+        <div class="menu-category">1. RIESGOS</div>
+        <a href="trastornos-fisicos.html"><i class="fas fa-bone"></i> T. Físicos</a>
+        <a href="fatiga-visual.html" class="active"><i class="fas fa-eye"></i> Fatiga Visual</a>
+        <a href="carga-mental.html"><i class="fas fa-brain"></i> Carga Mental</a>
+
+        <div class="menu-category">2. PREVENCIÓN</div>
+        <a href="Diseño-del-puesto.html"><i class="fas fa-chair"></i> Diseño del Puesto</a>
+        <a href="pausas.html"><i class="fas fa-walking"></i> Pausas</a>
+        <a href="higiene.html"><i class="fas fa-leaf"></i> Higiene Ambiental</a>
+
+        <div class="menu-category">3. OTROS</div>
+        <a href="Referencias.html"><i class="fas fa-book"></i> Referencias</a>
     </nav>
 
     <main>
-        <section class="header-box">
-            <h1 class="page-title">Fatiga Visual</h1>
-            <p class="page-description">Riesgos derivados del trabajo prolongado con PVD.</p>
-        </section>
+        <h1 class="page-title">Fatiga Visual</h1>
+        <p class="page-description">
+            Riesgos derivados del trabajo prolongado con PVD (Pantallas de Visualización de Datos). 
+            La fatiga visual ocurre por el esfuerzo muscular del ojo ante enfoques prolongados.
+        </p>
 
         <div class="info-grid">
+
             <div class="info-card card-ojo">
                 <img src="imagenes/ojo-esfuerzo.jpg" alt="Esfuerzo ocular" class="card-img">
                 <h3><i class="fas fa-eye"></i> ¿Por qué ocurre?</h3>
-                <p>El ojo se agota debido al enfoque constante a una distancia corta.</p>
+                <p>El ojo se agota debido al enfoque constante a una distancia corta y fija en el entorno IT.</p>
+                <ul>
+                    <li>Exposición a contrastes inadecuados.</li>
+                    <li>Brillos y reflejos en el monitor.</li>
+                </ul>
             </div>
-            
+
             <div class="info-card card-rojo">
                 <img src="imagenes/sequedad.jpg" alt="Ojos rojos" class="card-img">
                 <h3><i class="fas fa-tint-slash"></i> Síntomas Oculares</h3>
-                <p>Escozor, enrojecimiento y sensación de arenilla.</p>
-            </div>
-            
+                <p>Molestias que afectan directamente al globo ocular y su hidratación natural.</p>
+                <ul>
+                    <li>Escozor y enrojecimiento.</li>
+                    <li>Sensación de "arenilla".</li>
+                </ul>
             </div>
 
-        <div class="bottom-nav">
-            <a href="index.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Volver a Inicio</a>
+            <div class="info-card card-borroso">
+                <img src="imagenes/vision-borrosa.jpg" alt="Visión borrosa" class="card-img">
+                <h3><i class="fas fa-low-vision"></i> Síntomas Visuales</h3>
+                <p>Afectan a la calidad de la visión y la capacidad de enfoque tras la jornada.</p>
+                <ul>
+                    <li>Visión borrosa temporal.</li>
+                    <li>Dificultad para enfocar de lejos.</li>
+                </ul>
+            </div>
+
+            <div class="info-card card-cabeza">
+                <img src="imagenes/dolor-cabeza.jpg" alt="Dolor de cabeza" class="card-img">
+                <h3><i class="fas fa-head-side-virus"></i> Síntomas Extraoculares</h3>
+                <p>Reflejos de la fatiga visual en otras partes del cuerpo debido al esfuerzo.</p>
+                <ul>
+                    <li>Dolores de cabeza tensionales.</li>
+                    <li>Mareos o pesadez cervical.</li>
+                </ul>
+            </div>
+
+            <div class="info-card card-reloj">
+                <img src="imagenes/descanso-visual.jpg" alt="Regla 20-20-20" class="card-img">
+                <h3><i class="fas fa-clock"></i> Regla 20-20-20</h3>
+                <p>La medida preventiva más eficaz para aliviar el esfuerzo del músculo ciliar.</p>
+                <ul>
+                    <li>Cada 20 min, mira a 6 metros.</li>
+                    <li>Hazlo durante 20 segundos.</li>
+                </ul>
+            </div>
+
+            <div class="info-card card-luz">
+                <img src="imagenes/iluminacion.jpg" alt="Ergonomía visual" class="card-img">
+                <h3><i class="fas fa-lightbulb"></i> Entorno Ideal</h3>
+                <p>Configuración del puesto para minimizar el esfuerzo de acomodación ocular.</p>
+                <ul>
+                    <li>Pantalla a 50-60 cm de distancia.</li>
+                    <li>Luz ambiental tenue y sin reflejos.</li>
+                </ul>
+            </div>
+
         </div>
+
+        <div class="bottom-nav">
+            <a href="trastornos-fisicos.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Trastornos Físicos</a>
+            <a href="carga-mental.html" class="nav-btn">Carga Mental <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="author">Autor: Mario Infantes Trigo</div>
     </main>
+
 </body>
 </html>
