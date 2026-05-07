@@ -1,78 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatiga Visual - Prevención IT</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css"> 
+</head>
+<body>
 
-<section class="header-box">
-    <h1 class="page-title">{{ page.title }}</h1>
-    <p class="page-description">
-        Riesgos derivados del trabajo prolongado con PVD (Pantallas de Visualización de Datos). 
-        La fatiga visual ocurre por el esfuerzo muscular del ojo ante enfoques prolongados.
-    </p>
-</section>
-
-<div class="info-grid">
-
-    <div class="info-card card-ojo">
-        <img src="imagenes/ojo-esfuerzo.jpg" alt="Esfuerzo ocular" class="card-img">
-        <h3><i class="fas fa-eye"></i> ¿Por qué ocurre?</h3>
-        <p>El ojo se agota debido al enfoque constante a una distancia corta y fija en el entorno IT.</p>
-        <ul>
-            <li>Exposición a contrastes inadecuados.</li>
-            <li>Brillos y reflejos en el monitor.</li>
+    <nav class="sidebar">
+        <div class="logo">Salud IT</div>
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="trastornos-fisicos.html"><i class="fas fa-bone"></i> Trastornos Físicos</a></li>
+            <li><a href="fatiga-visual.html" class="active"><i class="fas fa-eye"></i> Fatiga Visual</a></li>
+            <li><a href="pausas.html"><i class="fas fa-walking"></i> Ejercicios y Pausas</a></li>
         </ul>
-    </div>
+    </nav>
 
-    <div class="info-card card-rojo">
-        <img src="imagenes/sequedad.jpg" alt="Ojos rojos" class="card-img">
-        <h3><i class="fas fa-tint-slash"></i> Síntomas Oculares</h3>
-        <p>Molestias que afectan directamente al globo ocular y su hidratación natural.</p>
-        <ul>
-            <li>Escozor y enrojecimiento.</li>
-            <li>Sensación de "arenilla".</li>
-        </ul>
-    </div>
+    <main>
+        <section class="header-box">
+            <h1 class="page-title">Fatiga Visual</h1>
+            <p class="page-description">Riesgos derivados del trabajo prolongado con PVD.</p>
+        </section>
 
-    <div class="info-card card-borroso">
-        <img src="imagenes/vision-borrosa.jpg" alt="Visión borrosa" class="card-img">
-        <h3><i class="fas fa-low-vision"></i> Síntomas Visuales</h3>
-        <p>Afectan a la calidad de la visión y la capacidad de enfoque tras la jornada.</p>
-        <ul>
-            <li>Visión borrosa temporal.</li>
-            <li>Dificultad para enfocar de lejos.</li>
-        </ul>
-    </div>
+        <div class="info-grid">
+            <div class="info-card card-ojo">
+                <img src="imagenes/ojo-esfuerzo.jpg" alt="Esfuerzo ocular" class="card-img">
+                <h3><i class="fas fa-eye"></i> ¿Por qué ocurre?</h3>
+                <p>El ojo se agota debido al enfoque constante a una distancia corta.</p>
+            </div>
+            
+            <div class="info-card card-rojo">
+                <img src="imagenes/sequedad.jpg" alt="Ojos rojos" class="card-img">
+                <h3><i class="fas fa-tint-slash"></i> Síntomas Oculares</h3>
+                <p>Escozor, enrojecimiento y sensación de arenilla.</p>
+            </div>
+            
+            </div>
 
-    <div class="info-card card-cabeza">
-        <img src="imagenes/dolor-cabeza.jpg" alt="Dolor de cabeza" class="card-img">
-        <h3><i class="fas fa-head-side-virus"></i> Síntomas Extraoculares</h3>
-        <p>Reflejos de la fatiga visual en otras partes del cuerpo debido al esfuerzo.</p>
-        <ul>
-            <li>Dolores de cabeza tensionales.</li>
-            <li>Mareos o pesadez cervical.</li>
-        </ul>
-    </div>
-
-    <div class="info-card card-reloj">
-        <img src="imagenes/descanso-visual.jpg" alt="Regla 20-20-20" class="card-img">
-        <h3><i class="fas fa-clock"></i> Regla 20-20-20</h3>
-        <p>La medida preventiva más eficaz para aliviar el esfuerzo del músculo ciliar.</p>
-        <ul>
-            <li>Cada 20 min, mira a 6 metros.</li>
-            <li>Hazlo durante 20 segundos.</li>
-        </ul>
-    </div>
-
-    <div class="info-card card-luz">
-        <img src="imagenes/iluminacion.jpg" alt="Ergonomía visual" class="card-img">
-        <h3><i class="fas fa-lightbulb"></i> Entorno Ideal</h3>
-        <p>Configuración del puesto para minimizar el esfuerzo de acomodación ocular.</p>
-        <ul>
-            <li>Pantalla a 50-60 cm de distancia.</li>
-            <li>Luz ambiental tenue y sin reflejos.</li>
-        </ul>
-    </div>
-
-</div>
-<div class="bottom-nav">
-    <a href="trastornos-fisicos.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Trastornos Físicos</a>
-    <a href="carga-mental.html" class="nav-btn">Carga Mental <i class="fas fa-arrow-right"></i></a>
-</div>
-
-<div class="author">Autor: Mario Infantes Trigo</div>
+        <div class="bottom-nav">
+            <a href="index.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Volver a Inicio</a>
+        </div>
+    </main>
+</body>
+</html>
